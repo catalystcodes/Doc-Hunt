@@ -1,5 +1,5 @@
 import React from "react";
-import { StatusBar, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, StatusBar, StyleSheet, Text, View } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 import { RootStackParams } from "./utils/types";
@@ -7,6 +7,7 @@ import { RootStackParams } from "./utils/types";
 //screen
 import SignUp from "./screens/signUp";
 import Login from "./screens/logIn";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 const Stack = createStackNavigator<RootStackParams>();
 
@@ -28,11 +29,8 @@ const AppRoutes = () => {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    // backgroundColor: "#fff",
   },
-  statusBarHeight: {
-    paddingTop: hp(5.5),
-  },
+  statusBarHeight: {},
 });
 
 export default AppRoutes;

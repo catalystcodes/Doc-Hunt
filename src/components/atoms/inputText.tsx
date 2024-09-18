@@ -8,13 +8,20 @@ import {
 interface InputTextProps {
   placeholder: string;
   value?: string;
+  name?: string;
   onChangeText?: () => void;
 }
 
-const InputText = ({ placeholder, value, onChangeText }: InputTextProps) => {
+const InputText = ({
+  placeholder,
+  value,
+  onChangeText,
+  name,
+}: InputTextProps) => {
   return (
     <View>
       <TextInput
+        keyboardType={name}
         style={styles.inputStyle}
         placeholder={placeholder}
         value={value}

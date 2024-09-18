@@ -1,12 +1,20 @@
 import React, { useState } from "react";
-import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import {
+  Image,
+  ImageBackground,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
 import Button from "../components/atoms/button";
-import Google from "../components/atoms/google";
-import Facebook from "../components/atoms/facebook";
+import Google from "../components/atoms/icons/google";
+import Facebook from "../components/atoms/icons/facebook";
 import ConfirmationButton from "../components/atoms/confirmationButton";
 import KeyboardAvoidView from "../components/molecules/KeyboardAvoidView";
 import InputText from "../components/atoms/inputText";
@@ -18,6 +26,19 @@ const SignUp = ({ navigation }: any) => {
   return (
     <KeyboardAvoidView>
       <View style={styles.whole}>
+        <Image
+          style={styles.tinyLogo}
+          source={require("../assets/backgroundImage1.png")}
+        />
+        <Image
+          style={styles.tinyLogo2}
+          source={require("../assets/backgroundImage2.png")}
+        />
+        {/* <ImageBackground
+          source={require("../assets/backgroundImage.jpg")}
+          resizeMode="cover"
+          style={styles.backgroundImage}
+        /> */}
         <View style={styles.intro}>
           <Text style={styles.header}>Join us to start searching</Text>
           <Text style={styles.subHeader}>
@@ -32,7 +53,7 @@ const SignUp = ({ navigation }: any) => {
           </View>
           <View style={styles.inputSection}>
             <InputText placeholder="Name" />
-            <InputText placeholder="Email" />
+            <InputText placeholder="Email" name="email-address" />
             <InputText placeholder="Password" />
           </View>
           <View style={styles.teamsAndCondition}>
@@ -66,6 +87,9 @@ const SignUp = ({ navigation }: any) => {
 const styles = StyleSheet.create({
   whole: {
     flex: 1,
+    paddingTop: hp(3.3),
+
+    // backgroundImage:
   },
   header: {
     marginTop: hp("15.4"),
@@ -111,6 +135,22 @@ const styles = StyleSheet.create({
     marginTop: hp(2.1),
     color: "#0EBE7F",
     fontSize: 14,
+  },
+  // backgroundImage: {
+  //   color: "white",
+  //   fontSize: 42,
+  //   lineHeight: 84,
+  //   fontWeight: "bold",
+  //   textAlign: "center",
+  //   backgroundColor: "#000000c0",
+  // },
+  tinyLogo: {
+    position: "absolute",
+  },
+  tinyLogo2: {
+    position: "absolute",
+    bottom: 0,
+    right: 0,
   },
 });
 
