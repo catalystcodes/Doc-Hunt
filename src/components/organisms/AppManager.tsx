@@ -5,11 +5,9 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 
 const AppManager = ({ children }: { children: ReactNode }) => {
   return (
-    <View>
-      <SafeAreaProvider>
-        <NavigationContainer>{children}</NavigationContainer>
-      </SafeAreaProvider>
-    </View>
+    <SafeAreaProvider>
+      <NavigationContainer>{children}</NavigationContainer>
+    </SafeAreaProvider>
   );
 };
 
