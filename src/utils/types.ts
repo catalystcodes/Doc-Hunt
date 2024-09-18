@@ -1,6 +1,6 @@
 export type RootStackParams = {
   onboarding: undefined;
-  init: undefined;
+  signUp: undefined;
   login: undefined;
   home: undefined;
 };

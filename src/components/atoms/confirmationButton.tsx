@@ -24,18 +24,18 @@ const ConfirmationButton = ({
 
 const styles = StyleSheet.create({
   socialButton: {
+    justifyContent: "center",
     flexDirection: "row",
     backgroundColor: "#0EBE7F",
     borderRadius: 12,
     paddingHorizontal: wp("30.7"),
     paddingVertical: hp("2.2"),
-    marginLeft: wp("4"),
+    width: wp("78.7"),
+    marginLeft: wp(10.7),
+    marginTop: hp(6.7),
   },
 
-  view: {
-    margin: "auto",
-    width: wp("78.7"),
-  },
+  view: {},
   text: {
     color: "white",
     fontWeight: "700",

@@ -5,8 +5,8 @@ import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 import { RootStackParams } from "./utils/types";
 
 //screen
-import Login from "./screens/login";
-import Home from "./screens/home";
+import SignUp from "./screens/signUp";
+import Login from "./screens/logIn";
 
 const Stack = createStackNavigator<RootStackParams>();
 
@@ -16,10 +16,10 @@ const AppRoutes = () => {
     <View style={[styles.container, styles.statusBarHeight]}>
       <Navigator
         screenOptions={{ headerShown: false }}
-        initialRouteName="login"
+        // initialRouteName=""
       >
+        <Screen name="signUp" component={SignUp} />
         <Screen name="login" component={Login} />
-        <Screen name="home" component={Home} />
       </Navigator>
     </View>
   );
