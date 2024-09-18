@@ -34,7 +34,7 @@ const Login = ({ navigation }: any) => {
           />
 
           <View style={styles.intro}>
-            <Text style={styles.header}>Join us to start searching</Text>
+            <Text style={styles.header}>Welcome back</Text>
             <Text style={styles.subHeader}>
               You can search course, apply course and find scholarship for
               abroad studies
@@ -47,18 +47,22 @@ const Login = ({ navigation }: any) => {
             </View>
             <View style={styles.inputSection}>
               <InputText placeholder="Name" />
-              <InputText placeholder="Email" name="email-address" />
               <InputText placeholder="Password" />
             </View>
-            <View style={styles.teamsAndCondition}>
-              <Text style={styles.teamsText}>
-                I agree with the Terms of Service & Privacy Policy
-              </Text>
-            </View>
           </View>
-          <ConfirmationButton text="Sign up" />
+          <ConfirmationButton text="Login" />
+          <Text
+            style={{
+              textAlign: "center",
+              color: "#0EBE7F",
+              marginTop: hp(2.3),
+              marginBottom: hp(15.1),
+            }}
+          >
+            Forgot password
+          </Text>
           <Text style={styles.doYouHaveAcc}>
-            Have an account?{" "}
+            Don’t have an account?
             <Text
               onPress={() => {
                 navigation.navigate("signUp");
@@ -122,13 +126,17 @@ const styles = StyleSheet.create({
     marginTop: hp(2.1),
     color: "#0EBE7F",
     fontSize: 14,
+    paddingBottom: hp(5.7),
   },
 
   tinyLogo: {
     position: "absolute",
   },
   tinyLogo2: {
+    flexGrow: 1,
+    // backgroundColor: "red",
     position: "absolute",
+
     bottom: 0,
     right: 0,
   },

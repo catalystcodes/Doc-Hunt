@@ -34,11 +34,6 @@ const SignUp = ({ navigation }: any) => {
           style={styles.tinyLogo2}
           source={require("../assets/backgroundImage2.png")}
         />
-        {/* <ImageBackground
-          source={require("../assets/backgroundImage.jpg")}
-          resizeMode="cover"
-          style={styles.backgroundImage}
-        /> */}
         <View style={styles.intro}>
           <Text style={styles.header}>Join us to start searching</Text>
           <Text style={styles.subHeader}>
@@ -88,8 +83,6 @@ const styles = StyleSheet.create({
   whole: {
     flex: 1,
     paddingTop: hp(3.3),
-
-    // backgroundImage:
   },
   header: {
     marginTop: hp("15.4"),
@@ -129,6 +122,7 @@ const styles = StyleSheet.create({
   teamsAndCondition: {
     flexDirection: "row",
     alignItems: "center",
+    marginBottom: hp(6.7),
   },
   doYouHaveAcc: {
     textAlign: "center",
@@ -136,14 +130,7 @@ const styles = StyleSheet.create({
     color: "#0EBE7F",
     fontSize: 14,
   },
-  // backgroundImage: {
-  //   color: "white",
-  //   fontSize: 42,
-  //   lineHeight: 84,
-  //   fontWeight: "bold",
-  //   textAlign: "center",
-  //   backgroundColor: "#000000c0",
-  // },
+
   tinyLogo: {
     position: "absolute",
   },

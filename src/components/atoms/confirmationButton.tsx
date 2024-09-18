@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     paddingVertical: hp("2.2"),
     width: wp("78.7"),
     marginLeft: wp(10.7),
-    marginTop: hp(6.7),
+    // marginTop: hp(6.7),
   },
 
   view: {},

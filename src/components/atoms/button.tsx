@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
   },
   text: {
     marginLeft: wp("3.2"),
+    color: "#677294",
   },
 });
 
