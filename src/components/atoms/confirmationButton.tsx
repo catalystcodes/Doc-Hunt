@@ -16,7 +16,7 @@ const ConfirmationButton = ({
     <View style={styles.view}>
       <Pressable style={styles.socialButton}>
         {Icon}
-        <Text>{text}</Text>
+        <Text style={styles.text}>{text}</Text>
       </Pressable>
     </View>
   );
@@ -35,6 +35,11 @@ const styles = StyleSheet.create({
   view: {
     margin: "auto",
     width: wp("78.7"),
+  },
+  text: {
+    color: "white",
+    fontWeight: "700",
+    // fontSize: 18,
   },
 });
 
