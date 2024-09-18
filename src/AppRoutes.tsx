@@ -15,6 +15,7 @@ const AppRoutes = () => {
   const { Navigator, Screen } = Stack;
   return (
     <View style={[styles.container, styles.statusBarHeight]}>
+      <StatusBar backgroundColor={"black"} />
       <Navigator
         screenOptions={{ headerShown: false }}
         // initialRouteName=""
