@@ -1,8 +1,8 @@
 import { View, Text, KeyboardAvoidingView } from "react-native";
-import React from "react";
+import React, { ReactNode } from "react";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
-const KeyboardAvoidView = ({ children }) => {
+const KeyboardAvoidView = ({ children }: { children: ReactNode }) => {
   return (
     <KeyboardAwareScrollView
       enableOnAndroid

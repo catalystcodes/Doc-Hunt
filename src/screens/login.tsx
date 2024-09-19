@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useCallback, useMemo, useRef, useState } from "react";
 import {
   Image,
   ImageBackground,
+  // Modal,
   Pressable,
   StyleSheet,
   Text,
@@ -18,62 +19,117 @@ import Facebook from "../components/atoms/icons/facebook";
 import ConfirmationButton from "../components/atoms/confirmationButton";
 import KeyboardAvoidView from "../components/molecules/KeyboardAvoidView";
 import InputText from "../components/atoms/inputText";
+import {
+  BottomSheetBackdrop,
+  BottomSheetModal,
+  BottomSheetModalProvider,
+  BottomSheetView,
+} from "@gorhom/bottom-sheet";
+import BottomSheet from "@gorhom/bottom-sheet";
 
 const Login = ({ navigation }: any) => {
-  return (
-    <View>
-      <KeyboardAvoidView>
-        <View style={styles.whole}>
-          <Image
-            style={styles.tinyLogo}
-            source={require("../assets/backgroundImage1.png")}
-          />
-          <Image
-            style={styles.tinyLogo2}
-            source={require("../assets/backgroundImage2.png")}
-          />
+  const bottomSheetModalRef = useRef<BottomSheetModal>(null);
+  const snapPoints = useMemo(() => ["1%", "45%"], []);
+  const handleClosePress = () => bottomSheetModalRef.current?.close();
+  const handleOpenPress = () => bottomSheetModalRef.current?.expand();
 
-          <View style={styles.intro}>
-            <Text style={styles.header}>Welcome back</Text>
-            <Text style={styles.subHeader}>
-              You can search course, apply course and find scholarship for
-              abroad studies
-            </Text>
-          </View>
-          <View style={styles.subIntro}>
-            <View style={styles.button}>
-              <Button text="Google" Icon={<Google />} />
-              <Button text="Facebook" Icon={<Facebook />} />
+  const handleSheetChanges = useCallback((index: number) => {
+    console.log("handleSheetChanges", index);
+  }, []);
+
+  const renderBackdrop = useCallback(
+    (props: any) => (
+      <BottomSheetBackdrop
+        appearsOnIndex={1}
+        disappearsOnIndex={0}
+        {...props}
+      />
+    ),
+    []
+  );
+
+  return (
+    <BottomSheetModalProvider>
+      <View>
+        <KeyboardAvoidView>
+          <View style={styles.whole}>
+            <Image
+              style={styles.tinyLogo}
+              source={require("../assets/backgroundImage1.png")}
+            />
+            <Image
+              style={styles.tinyLogo2}
+              source={require("../assets/backgroundImage2.png")}
+            />
+
+            <View style={styles.intro}>
+              <Text style={styles.header}>Welcome back</Text>
+              <Text style={styles.subHeader}>
+                You can search course, apply course and find scholarship for
+                abroad studies
+              </Text>
             </View>
-            <View style={styles.inputSection}>
-              <InputText placeholder="Name" />
-              <InputText placeholder="Password" />
+            <View style={styles.subIntro}>
+              <View style={styles.button}>
+                <Button text="Google" Icon={<Google />} />
+                <Button text="Facebook" Icon={<Facebook />} />
+              </View>
+              <View style={styles.inputSection}>
+                <InputText placeholder="Name" />
+                <InputText placeholder="Password" />
+              </View>
             </View>
-          </View>
-          <ConfirmationButton text="Login" />
-          <Text
-            style={{
-              textAlign: "center",
-              color: "#0EBE7F",
-              marginTop: hp(2.3),
-              marginBottom: hp(15.1),
-            }}
-          >
-            Forgot password
-          </Text>
-          <Text style={styles.doYouHaveAcc}>
-            Don’t have an account?
+            <ConfirmationButton text="Login" />
             <Text
+              style={{
+                textAlign: "center",
+                color: "#0EBE7F",
+                marginTop: hp(2.3),
+                marginBottom: hp(15.1),
+              }}
               onPress={() => {
-                navigation.navigate("signUp");
+                handleOpenPress();
               }}
             >
-              Join us
+              Forgot password
             </Text>
-          </Text>
-        </View>
-      </KeyboardAvoidView>
-    </View>
+            <Text style={styles.doYouHaveAcc}>
+              Don’t have an account?
+              <Text
+                onPress={() => {
+                  navigation.navigate("signUp");
+                }}
+              >
+                Join us
+              </Text>
+            </Text>
+          </View>
+
+          <BottomSheet
+            ref={bottomSheetModalRef}
+            index={0}
+            snapPoints={snapPoints}
+            onChange={handleSheetChanges}
+            handleIndicatorStyle={{
+              backgroundColor: "#C4C4C4",
+              height: hp("0.6"),
+              width: wp("34.7"),
+            }}
+            backdropComponent={renderBackdrop}
+          >
+            <BottomSheetView style={styles.contentContainer}>
+              <Text
+                onPress={() => {
+                  handleClosePress();
+                }}
+              >
+                Awesome 🎉
+              </Text>
+            </BottomSheetView>
+          </BottomSheet>
+        </KeyboardAvoidView>
+      </View>
+    </BottomSheetModalProvider>
   );
 };
 
@@ -139,6 +195,10 @@ const styles = StyleSheet.create({
 
     bottom: 0,
     right: 0,
+  },
+  contentContainer: {
+    flex: 1,
+    alignItems: "center",
   },
 });
 
