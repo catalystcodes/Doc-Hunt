@@ -79,7 +79,14 @@ const Login = ({ navigation }: any) => {
                 <InputText placeholder="Password" />
               </View>
             </View>
-            <ConfirmationButton text="Login" />
+            <Pressable
+              style={{ backgroundColor: "red" }}
+              onPress={() => {
+                navigation.navigate("home");
+              }}
+            >
+              <ConfirmationButton text="Login" />
+            </Pressable>
             <Text
               style={{
                 textAlign: "center",
@@ -118,13 +125,34 @@ const Login = ({ navigation }: any) => {
             backdropComponent={renderBackdrop}
           >
             <BottomSheetView style={styles.contentContainer}>
-              <Text
-                onPress={() => {
-                  handleClosePress();
-                }}
-              >
-                Awesome 🎉
-              </Text>
+              <View style={styles.modelView}>
+                <Text
+                  style={{
+                    fontSize: 24,
+                    marginTop: hp(6.8),
+                    marginBottom: hp(2.5),
+                    fontWeight: "medium",
+                  }}
+                >
+                  Forgot password
+                </Text>
+                <Text
+                  style={{
+                    color: "#677294",
+                  }}
+                >
+                  Enter your email for the verification process, we will send 4
+                  digits code to your email.
+                </Text>
+              </View>
+              <TextInput
+                style={styles.input}
+                // onChangeText={onChangeNumber}
+                // value={number}
+                placeholder="Email"
+                keyboardType="email-address"
+              />
+              <ConfirmationButton text="Continue" />
             </BottomSheetView>
           </BottomSheet>
         </KeyboardAvoidView>
@@ -190,15 +218,31 @@ const styles = StyleSheet.create({
   },
   tinyLogo2: {
     flexGrow: 1,
-    // backgroundColor: "red",
     position: "absolute",
-
     bottom: 0,
     right: 0,
   },
   contentContainer: {
     flex: 1,
     alignItems: "center",
+  },
+  modelView: {
+    paddingLeft: wp(5.1),
+    // paddingRight: wp(18),
+    // backgroundColor: "red",
+  },
+  modalInput: {
+    flexGrow: 1,
+  },
+  input: {
+    width: wp(89.3),
+    height: hp(6.7),
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+    borderRadius: 12,
+    paddingLeft: wp(6.7),
+    borderColor: "#677294",
   },
 });
 

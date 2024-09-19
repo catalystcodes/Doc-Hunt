@@ -4,6 +4,8 @@ import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
+import SearchIcon from "./icons/searchIcon";
+import CancelIcon from "./icons/cancelIcon";
 
 interface InputTextProps {
   placeholder: string;
@@ -12,14 +14,31 @@ interface InputTextProps {
   onChangeText?: () => void;
 }
 
-const InputText = ({
+const SearchArea = ({
   placeholder,
   value,
   onChangeText,
   name,
 }: InputTextProps) => {
   return (
-    <View>
+    <View
+      style={{
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+        borderWidth: 1,
+        borderColor: "#E0E0E0",
+        // height: hp(6.7),
+        borderRadius: 6,
+        paddingHorizontal: wp(5.3),
+        paddingVertical: hp(2.2),
+        marginTop: hp(2.2),
+        marginLeft: wp(5.3),
+        backgroundColor: "white",
+        width: wp(89.3),
+      }}
+    >
+      <SearchIcon />
       <TextInput
         keyboardType={name}
         style={styles.inputStyle}
@@ -27,21 +46,15 @@ const InputText = ({
         value={value}
         onChangeText={onChangeText}
       />
+      <CancelIcon />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   inputStyle: {
-    borderWidth: 1,
-    borderColor: "#E0E0E0",
-    fontSize: 14,
-    height: hp(6.7),
-    borderRadius: 12,
-    paddingLeft: wp(6.7),
-    marginTop: hp(2.2),
-    // backgroundColor: "white",
+    // fontSize: 14,
   },
 });
 
-export default InputText;
+export default SearchArea;
