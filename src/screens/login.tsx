@@ -80,13 +80,33 @@ const Login = ({ navigation }: any) => {
               </View>
             </View>
             <Pressable
-              style={{ backgroundColor: "red" }}
+              style={{
+                width: wp(78.7),
+                height: hp(6.7),
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                borderRadius: 12,
+                marginTop: 50,
+                marginLeft: wp(10.7),
+                backgroundColor: "#0EBE7F",
+              }}
               onPress={() => {
                 navigation.navigate("home");
               }}
             >
-              <ConfirmationButton text="Login" />
+              <Text
+                style={{
+                  textAlign: "center",
+                  color: "white",
+                  fontSize: 18,
+                  fontWeight: "medium",
+                }}
+              >
+                Login
+              </Text>
             </Pressable>
+
             <Text
               style={{
                 textAlign: "center",
@@ -152,7 +172,32 @@ const Login = ({ navigation }: any) => {
                 placeholder="Email"
                 keyboardType="email-address"
               />
-              <ConfirmationButton text="Continue" />
+              <Pressable
+                style={{
+                  width: wp(78.7),
+                  height: hp(6.7),
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  borderRadius: 12,
+                  marginTop: hp(3.7),
+                  backgroundColor: "#0EBE7F",
+                }}
+                // onPress={() => {
+                //   navigation.navigate("home");
+                // }}
+              >
+                <Text
+                  style={{
+                    textAlign: "center",
+                    color: "white",
+                    fontSize: 18,
+                    fontWeight: "medium",
+                  }}
+                >
+                  Continue
+                </Text>
+              </Pressable>
             </BottomSheetView>
           </BottomSheet>
         </KeyboardAvoidView>

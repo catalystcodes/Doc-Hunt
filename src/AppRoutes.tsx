@@ -9,6 +9,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import SignUp from "./screens/signUp";
 import Login from "./screens/logIn";
 import Home from "./screens/home";
+import AppBottomTabs from "./components/molecules/bottomTab";
 
 const Stack = createStackNavigator<RootStackParams>();
 
@@ -17,10 +18,13 @@ const AppRoutes = () => {
   return (
     <View style={[styles.container, styles.statusBarHeight]}>
       <StatusBar backgroundColor={"black"} />
-      <Navigator screenOptions={{ headerShown: false }} initialRouteName="home">
+      <Navigator
+        screenOptions={{ headerShown: false }}
+        initialRouteName="bottomTab"
+      >
         <Screen name="signUp" component={SignUp} />
         <Screen name="login" component={Login} />
-        <Screen name="home" component={Home} />
+        <Screen name="bottomTab" component={AppBottomTabs} />
       </Navigator>
     </View>
   );

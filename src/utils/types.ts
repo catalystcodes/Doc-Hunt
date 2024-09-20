@@ -3,4 +3,5 @@ export type RootStackParams = {
   signUp: undefined;
   login: undefined;
   home: undefined;
+  bottomTab: undefined;
 };
