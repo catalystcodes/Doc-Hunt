@@ -22,6 +22,7 @@
     "expo-image": "^1.12.15",
     "expo-status-bar": "~1.12.1",
     "expo-video": "^1.2.6",
+    "expo-video-player": "^2.2.0",
     "react": "18.2.0",
     "react-native": "0.74.5",
     "react-native-app-intro-slider": "^4.0.4",

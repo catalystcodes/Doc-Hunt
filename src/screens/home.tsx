@@ -8,6 +8,10 @@ import InputText from "../components/atoms/inputText";
 import SearchArea from "../components/atoms/searchArea";
 import KeyboardAvoidView from "../components/molecules/KeyboardAvoidView";
 import VideoScreen from "../components/molecules/videoScreen";
+import TheetIcon from "../components/atoms/icons/theetIcon";
+import HeartIcon from "../components/atoms/icons/heartIcon";
+import EyeIcon from "../components/atoms/icons/eyeIcon";
+import BodyIcon from "../components/atoms/icons/bodyIcon";
 
 const Home = () => {
   return (
@@ -51,11 +55,33 @@ const Home = () => {
           </Text>
           <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
             <View style={styles.videos}>
-              <VideoScreen />
-              <VideoScreen />
-              <VideoScreen />
+              <VideoScreen videoSource="http://commondatastorage.googleapis.com/ggtv-videos-bucket/sample/BigBuckBunny.mp4" />
+              <VideoScreen videoSource="http://commondatastorage.googleapis.com/ggtv-videos-bucket/sample/BigBuckBunny.mp4" />
+              <VideoScreen videoSource="http://commondatastorage.googleapis.com/ggtv-videos-bucket/sample/BigBuckBunny.mp4" />
             </View>
           </ScrollView>
+          <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+            <View style={{ flexDirection: "row" }}>
+              <Image source={require("../assets/theetIcon.png")} />
+              <Image source={require("../assets/heartIcon.png")} />
+              <Image source={require("../assets/eyeIcon.png")} />
+              <Image source={require("../assets/bodyIcon.png")} />
+            </View>
+          </ScrollView>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <Text style={{ fontSize: 18, fontWeight: "medium" }}>
+              Popular Doctor
+            </Text>
+            <Text style={{ fontSize: 12, fontWeight: "light" }}>
+              See all {">"}
+            </Text>
+          </View>
         </View>
       </KeyboardAvoidView>
     </View>
