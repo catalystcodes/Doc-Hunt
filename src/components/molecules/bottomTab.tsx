@@ -38,7 +38,7 @@ const AppBottomTabs = () => {
         component={Favorite}
         options={{
           tabBarIcon: ({ color }) => (
-            <MaterialIcons name="favorite-border" size={24} color="black" />
+            <MaterialIcons name="favorite" size={24} color={color} />
           ),
         }}
       />
@@ -50,7 +50,7 @@ const AppBottomTabs = () => {
             <MaterialCommunityIcons
               name="comment-bookmark-outline"
               size={24}
-              color="black"
+              color={color}
             />
           ),
         }}
@@ -60,7 +60,7 @@ const AppBottomTabs = () => {
         component={Comment}
         options={{
           tabBarIcon: ({ color }) => (
-            <FontAwesome name="commenting" size={24} color="black" />
+            <FontAwesome name="commenting" size={24} color={color} />
           ),
         }}
       />

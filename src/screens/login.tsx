@@ -1,4 +1,7 @@
 import React, { useCallback, useMemo, useRef, useState } from "react";
+
+import { useVideoPlayer, VideoView } from "expo-video";
+
 import {
   Image,
   ImageBackground,
@@ -92,7 +95,7 @@ const Login = ({ navigation }: any) => {
                 backgroundColor: "#0EBE7F",
               }}
               onPress={() => {
-                navigation.navigate("home");
+                navigation.navigate("bottomTab");
               }}
             >
               <Text

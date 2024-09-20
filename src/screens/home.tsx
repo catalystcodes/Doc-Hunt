@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
@@ -7,6 +7,7 @@ import {
 import InputText from "../components/atoms/inputText";
 import SearchArea from "../components/atoms/searchArea";
 import KeyboardAvoidView from "../components/molecules/KeyboardAvoidView";
+import VideoScreen from "../components/molecules/videoScreen";
 
 const Home = () => {
   return (
@@ -38,7 +39,24 @@ const Home = () => {
           <Image source={require("../assets/avatar.png")} />
         </View>
         <SearchArea placeholder="Search...." />
-        <Text style={{ marginTop: hp(3.7) }}>Live Doctors</Text>
+        <View style={styles.veiw1}>
+          <Text
+            style={{
+              fontSize: 18,
+              fontWeight: "medium",
+              marginBottom: hp(2.5),
+            }}
+          >
+            Live Doctors
+          </Text>
+          <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+            <View style={styles.videos}>
+              <VideoScreen />
+              <VideoScreen />
+              <VideoScreen />
+            </View>
+          </ScrollView>
+        </View>
       </KeyboardAvoidView>
     </View>
   );
@@ -67,6 +85,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "flex-end",
+  },
+  veiw1: {
+    marginHorizontal: wp(5.3),
+    marginTop: hp(3.7),
+  },
+  videos: {
+    flexDirection: "row",
   },
 });
 

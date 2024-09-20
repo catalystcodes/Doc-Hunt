@@ -20,11 +20,12 @@ const AppRoutes = () => {
       <StatusBar backgroundColor={"black"} />
       <Navigator
         screenOptions={{ headerShown: false }}
-        initialRouteName="bottomTab"
+        // initialRouteName="bottomTab"
       >
         <Screen name="signUp" component={SignUp} />
         <Screen name="login" component={Login} />
         <Screen name="bottomTab" component={AppBottomTabs} />
+        {/* <Screen name="homepage" component={Home} /> */}
       </Navigator>
     </View>
   );
