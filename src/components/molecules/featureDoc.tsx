@@ -16,7 +16,7 @@ const FeatureDoc = ({
   name: string;
   payPerHour: string;
   docAvatar: any;
-  rating: string;
+  rating: string | Number;
 }) => {
   return (
     <View style={styles.whole}>

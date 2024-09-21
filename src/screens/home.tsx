@@ -119,11 +119,21 @@ const Home = () => {
           </Text>
         </View>
         <View>
-          <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-            {/* <FeatureDoc /> */}
+          <ScrollView
+            style={{
+              marginBottom: hp(3),
+            }}
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+          >
             {featureDocDetails.map((feature, featureIndex) => (
               <Fragment key={featureIndex}>
-                <FeatureDoc name={feature.name} icon />
+                <FeatureDoc
+                  name={feature.name}
+                  docAvatar={feature.icon}
+                  payPerHour={feature.payPerHour}
+                  rating={feature.rating}
+                />
               </Fragment>
             ))}
           </ScrollView>
