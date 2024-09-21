@@ -1,5 +1,5 @@
-import React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import React, { Fragment } from "react";
+import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
@@ -7,6 +7,9 @@ import {
 import ArrowBack from "../components/atoms/icons/arrowback";
 import SearchArea from "../components/atoms/searchArea";
 import KeyboardAvoidView from "../components/molecules/KeyboardAvoidView";
+import FavoriteDocCard from "../components/molecules/favoriteDocCard";
+import { favoriteDocDetails, featureDocDetails } from "../constantData";
+import FeatureDoc from "../components/molecules/featureDoc";
 
 const FavoriteDocPage = () => {
   return (
@@ -23,12 +26,68 @@ const FavoriteDocPage = () => {
         <View style={styles.header}>
           <ArrowBack />
           <Text
-            style={{ marginLeft: wp(5.1), fontSize: 18, fontWeight: "700" }}
+            style={{ marginLeft: wp(5.1), fontSize: 18, fontWeight: "500" }}
           >
             Favorite Doctors
           </Text>
         </View>
         <SearchArea placeholder="Search" />
+        <View style={styles.separator}></View>
+        <View style={styles.favDoc}>
+          {favoriteDocDetails.map((favorite, favoriteIndex) => (
+            <Fragment key={favoriteIndex}>
+              <FavoriteDocCard
+                title={favorite.name}
+                docAvatar={favorite.icon}
+                areaofspecialist={favorite.area}
+              />
+            </Fragment>
+          ))}
+          <View
+            style={{
+              flexDirection: "row",
+              // justifyContent: "space-between",
+              alignItems: "center",
+              justifyContent: "space-around",
+              marginBottom: hp(2.7),
+              marginHorizontal: wp(5.3),
+              marginTop: hp(3.7),
+            }}
+          >
+            <Text style={{ fontSize: 18, fontWeight: "500" }}>
+              Feature Doctor
+            </Text>
+            <Text
+              style={{
+                fontSize: 12,
+                fontWeight: "light",
+                marginLeft: wp(45.1),
+              }}
+            >
+              See all {">"}
+            </Text>
+          </View>
+          <View>
+            <ScrollView
+              style={{
+                marginBottom: hp(3),
+              }}
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+            >
+              {featureDocDetails.map((feature, featureIndex) => (
+                <Fragment key={featureIndex}>
+                  <FeatureDoc
+                    name={feature.name}
+                    docAvatar={feature.icon}
+                    payPerHour={feature.payPerHour}
+                    rating={feature.rating}
+                  />
+                </Fragment>
+              ))}
+            </ScrollView>
+          </View>
+        </View>
       </KeyboardAvoidView>
     </View>
   );
@@ -50,6 +109,13 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 0,
     right: 0,
+  },
+  separator: {
+    paddingVertical: hp(1.5),
+  },
+  favDoc: {
+    flexDirection: "row",
+    flexWrap: "wrap",
   },
 });
 

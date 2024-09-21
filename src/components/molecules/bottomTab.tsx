@@ -12,6 +12,7 @@ import Favorite from "../../screens/favoriteDocPage";
 import BookMark from "../../screens/bookMark";
 import Comment from "../../screens/comment";
 import FavoriteDocPage from "../../screens/favoriteDocPage";
+import { BounceOut } from "react-native-reanimated";
 
 const Tab = createBottomTabNavigator();
 
@@ -23,6 +24,10 @@ const AppBottomTabs = () => {
         tabBarActiveTintColor: "#0EBE7E",
         tabBarInactiveTintColor: "#BDBDBD",
         tabBarShowLabel: false,
+        tabBarStyle: {
+          borderTopLeftRadius: 15,
+          borderTopRightRadius: 15,
+        },
       }}
     >
       <Tab.Screen

@@ -45,3 +45,27 @@ export const featureDocDetails = [
     rating: 4.0,
   },
 ];
+
+export const favoriteDocDetails = [
+  {
+    icon: require("../assets/Dr. Shouey bigIcon.png"),
+    name: "Dr. Crick",
+    area: "Medicine Specialist",
+  },
+  {
+    icon: require("../assets/Dr. Christenfeld N bigIcon.png"),
+    name: "Dr.Lachinet",
+    area: "Dentist Specialist",
+  },
+  {
+    icon: require("../assets/Dr. Christenfeld N bigIcon.png"),
+    name: "Dr. Strain",
+    area: "Dentist Specialist",
+  },
+  {
+    icon: require("../assets/Dr. Shouey bigIcon.png"),
+
+    name: "Dr.Catalyst",
+    area: "Oncology Specialist",
+  },
+];
