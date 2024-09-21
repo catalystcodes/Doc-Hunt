@@ -10,6 +10,7 @@ import SignUp from "./screens/signUp";
 import Login from "./screens/logIn";
 import Home from "./screens/home";
 import AppBottomTabs from "./components/molecules/bottomTab";
+import PopularDoc from "./screens/popularDoc";
 
 const Stack = createStackNavigator<RootStackParams>();
 
@@ -25,6 +26,7 @@ const AppRoutes = () => {
         <Screen name="signUp" component={SignUp} />
         <Screen name="login" component={Login} />
         <Screen name="bottomTab" component={AppBottomTabs} />
+        <Screen name="popularDocFullPage" component={PopularDoc} />
       </Navigator>
     </View>
   );

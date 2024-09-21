@@ -16,7 +16,7 @@ import PopularDocCard from "../components/molecules/popularDocCard";
 import { detailsOfDoc, featureDocDetails } from "../constantData";
 import FeatureDoc from "../components/molecules/featureDoc";
 
-const Home = () => {
+const Home = ({ navigation }: any) => {
   return (
     <View style={{ flexGrow: 1 }}>
       <KeyboardAvoidView>
@@ -82,7 +82,12 @@ const Home = () => {
             <Text style={{ fontSize: 18, fontWeight: "700" }}>
               Popular Doctor
             </Text>
-            <Text style={{ fontSize: 12, fontWeight: "light" }}>
+            <Text
+              style={{ fontSize: 12, fontWeight: "light" }}
+              onPress={() => {
+                navigation.navigate("popularDocFullPage");
+              }}
+            >
               See all {">"}
             </Text>
           </View>

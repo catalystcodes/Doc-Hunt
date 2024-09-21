@@ -10,6 +10,8 @@ import KeyboardAvoidView from "../components/molecules/KeyboardAvoidView";
 import FavoriteDocCard from "../components/molecules/favoriteDocCard";
 import { favoriteDocDetails, featureDocDetails } from "../constantData";
 import FeatureDoc from "../components/molecules/featureDoc";
+import HeaderPage from "../components/molecules/headeLine";
+import HeadLine from "../components/molecules/headeLine";
 
 const FavoriteDocPage = () => {
   return (
@@ -23,14 +25,7 @@ const FavoriteDocPage = () => {
         source={require("../assets/backgroundImage2.png")}
       />
       <KeyboardAvoidView>
-        <View style={styles.header}>
-          <ArrowBack />
-          <Text
-            style={{ marginLeft: wp(5.1), fontSize: 18, fontWeight: "500" }}
-          >
-            Favorite Doctors
-          </Text>
-        </View>
+        <HeadLine title="Favorite Doctors" />
         <SearchArea placeholder="Search" />
         <View style={styles.separator}></View>
         <View style={styles.favDoc}>
@@ -46,7 +41,6 @@ const FavoriteDocPage = () => {
           <View
             style={{
               flexDirection: "row",
-              // justifyContent: "space-between",
               alignItems: "center",
               justifyContent: "space-around",
               marginBottom: hp(2.7),
