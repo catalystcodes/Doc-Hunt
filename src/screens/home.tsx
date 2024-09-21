@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import {
   heightPercentageToDP as hp,
@@ -12,6 +12,9 @@ import TheetIcon from "../components/atoms/icons/theetIcon";
 import HeartIcon from "../components/atoms/icons/heartIcon";
 import EyeIcon from "../components/atoms/icons/eyeIcon";
 import BodyIcon from "../components/atoms/icons/bodyIcon";
+import PopularDocCard from "../components/molecules/popularDocCard";
+import { detailsOfDoc, featureDocDetails } from "../constantData";
+import FeatureDoc from "../components/molecules/featureDoc";
 
 const Home = () => {
   return (
@@ -47,7 +50,7 @@ const Home = () => {
           <Text
             style={{
               fontSize: 18,
-              fontWeight: "medium",
+              fontWeight: "700",
               marginBottom: hp(2.5),
             }}
           >
@@ -73,15 +76,57 @@ const Home = () => {
               flexDirection: "row",
               justifyContent: "space-between",
               alignItems: "center",
+              marginBottom: hp(2.7),
             }}
           >
-            <Text style={{ fontSize: 18, fontWeight: "medium" }}>
+            <Text style={{ fontSize: 18, fontWeight: "700" }}>
               Popular Doctor
             </Text>
             <Text style={{ fontSize: 12, fontWeight: "light" }}>
               See all {">"}
             </Text>
           </View>
+        </View>
+        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+          <View style={{ flexDirection: "row" }}>
+            {detailsOfDoc.map((detail, detailIndex) => (
+              <Fragment key={detailIndex}>
+                <PopularDocCard
+                  doctorImage={detail.icon}
+                  title={detail.name}
+                  areaOfSpecialist={detail.area}
+                  rateImage={detail.rate}
+                />
+              </Fragment>
+            ))}
+          </View>
+        </ScrollView>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginBottom: hp(2.7),
+            marginHorizontal: wp(5.3),
+            marginTop: hp(3.7),
+          }}
+        >
+          <Text style={{ fontSize: 18, fontWeight: "700" }}>
+            Feature Doctor
+          </Text>
+          <Text style={{ fontSize: 12, fontWeight: "light" }}>
+            See all {">"}
+          </Text>
+        </View>
+        <View>
+          <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+            {/* <FeatureDoc /> */}
+            {featureDocDetails.map((feature, featureIndex) => (
+              <Fragment key={featureIndex}>
+                <FeatureDoc name={feature.name} icon />
+              </Fragment>
+            ))}
+          </ScrollView>
         </View>
       </KeyboardAvoidView>
     </View>
