@@ -8,9 +8,10 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 
 import Home from "../../screens/home";
-import Favorite from "../../screens/favorite";
+import Favorite from "../../screens/favoriteDocPage";
 import BookMark from "../../screens/bookMark";
 import Comment from "../../screens/comment";
+import FavoriteDocPage from "../../screens/favoriteDocPage";
 
 const Tab = createBottomTabNavigator();
 
@@ -19,7 +20,7 @@ const AppBottomTabs = () => {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: "#7D57F1",
+        tabBarActiveTintColor: "#0EBE7E",
         tabBarInactiveTintColor: "#BDBDBD",
         tabBarShowLabel: false,
       }}
@@ -34,8 +35,8 @@ const AppBottomTabs = () => {
         }}
       />
       <Tab.Screen
-        name="favorite"
-        component={Favorite}
+        name="favoriteDocPage"
+        component={FavoriteDocPage}
         options={{
           tabBarIcon: ({ color }) => (
             <MaterialIcons name="favorite" size={24} color={color} />
