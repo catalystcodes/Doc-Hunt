@@ -152,7 +152,6 @@ const styles = StyleSheet.create({
   tinyLogo: {
     position: "absolute",
     width: "100%",
-    // borderRadius: 12,
   },
   tinyLogo1: {
     position: "absolute",

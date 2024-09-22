@@ -1,33 +1,41 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Pressable } from "react-native";
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
 import ArrowBack from "../atoms/icons/arrowback";
 import SearchIcon from "../atoms/icons/searchIcon";
+import { useNavigation } from "@react-navigation/native";
 
 interface Props {
-  title: string;
+  title?: string;
   style?: object;
 }
 
 const HeadLine: React.FC<Props> = ({ title, style }) => {
+  const navigation = useNavigation();
   return (
     <View style={[styles.header, style]}>
-      <View
-        style={{
-          height: hp(3.7),
-          width: wp(8),
-          paddingHorizontal: wp(2.6),
-          paddingVertical: hp(1.1),
-          backgroundColor: "white",
-          // justifyContent: "center",
-          borderRadius: 10,
+      <Pressable
+        onPress={() => {
+          navigation.goBack();
         }}
       >
-        <ArrowBack />
-      </View>
+        <View
+          style={{
+            height: hp(3.7),
+            width: wp(8),
+            paddingHorizontal: wp(2.6),
+            paddingVertical: hp(1.1),
+            backgroundColor: "white",
+            // justifyContent: "center",
+            borderRadius: 10,
+          }}
+        >
+          <ArrowBack />
+        </View>
+      </Pressable>
       <Text
         style={{
           marginLeft: wp(5.1),
