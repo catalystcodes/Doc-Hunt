@@ -138,7 +138,8 @@ const styles = StyleSheet.create({
   docName: {
     fontSize: 18,
     fontWeight: "500",
-    marginRight: wp(17.6),
+    // marginRight: wp(17.6),
+    flexGrow: 1,
   },
   docSpecialty: {
     fontSize: 14,
