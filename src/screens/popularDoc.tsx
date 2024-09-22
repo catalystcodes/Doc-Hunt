@@ -7,6 +7,7 @@ import {
 } from "react-native-responsive-screen";
 import { detailsOfDoc } from "../constantData";
 import PopularDocCard from "../components/molecules/popularDocCard";
+import DocCategoryCard from "../components/molecules/docCategoryCard";
 
 const PopularDoc = () => {
   return (
@@ -66,6 +67,7 @@ const PopularDoc = () => {
         >
           Category
         </Text>
+        <DocCategoryCard />
       </View>
     </View>
   );
