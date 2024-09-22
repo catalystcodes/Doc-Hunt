@@ -5,7 +5,7 @@ import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
-import { detailsOfDoc } from "../constantData";
+import { detailsOfCategoryCard, detailsOfDoc } from "../constantData";
 import PopularDocCard from "../components/molecules/popularDocCard";
 import DocCategoryCard from "../components/molecules/docCategoryCard";
 
@@ -67,7 +67,19 @@ const PopularDoc = () => {
         >
           Category
         </Text>
-        <DocCategoryCard />
+        <ScrollView>
+          {detailsOfCategoryCard.map((detail, detailIndex) => (
+            <Fragment key={detailIndex}>
+              <DocCategoryCard
+                doctorName={detail.name}
+                doctorSpecialty={detail.area}
+                rating={detail.rate}
+                imageSource={detail.avatar}
+                views={detail.view}
+              />
+            </Fragment>
+          ))}
+        </ScrollView>
       </View>
     </View>
   );

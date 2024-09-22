@@ -69,3 +69,41 @@ export const favoriteDocDetails = [
     area: "Oncology Specialist",
   },
 ];
+
+export const detailsOfCategoryCard = [
+  {
+    avatar: require("../assets/Dr. Mistry Brick.png"),
+    name: "Dr. Fillerup Grab",
+    area: "Medicine Specialist",
+    rate: 3.4,
+    view: 2003,
+  },
+  {
+    avatar: require("../assets/Dr. Ether Wall.png"),
+    name: "Dr. Mistry Brick",
+    area: "Medicine Specialist",
+    rate: 3.4,
+    view: 2003,
+  },
+  {
+    avatar: require("../assets/Dr. Mistry Brick.png"),
+    name: "Dr. Ether Wall",
+    area: "Medicine Specialist",
+    rate: 3.4,
+    view: 2003,
+  },
+  {
+    avatar: require("../assets/Dr. Ether Wall.png"),
+    name: "Dr. Catalyst M",
+    area: "Oncology Specialist",
+    rate: 3.4,
+    view: 2003,
+  },
+  {
+    avatar: require("../assets/Dr. Mistry Brick.png"),
+    name: "Dr. Messi L",
+    area: "Dentist Specialist",
+    rate: 3.4,
+    view: 2003,
+  },
+];
