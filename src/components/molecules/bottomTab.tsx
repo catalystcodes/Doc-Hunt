@@ -14,6 +14,7 @@ import Comment from "../../screens/comment";
 import FavoriteDocPage from "../../screens/favoriteDocPage";
 import { BounceOut } from "react-native-reanimated";
 import HomeStack from "./homeStack";
+import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 
 const Tab = createBottomTabNavigator();
 
@@ -22,12 +23,16 @@ const AppBottomTabs = () => {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
+        // tabBarActiveTintColor: "#0EBE7E",
         tabBarActiveTintColor: "#0EBE7E",
+        // tabBarActiveBackgroundColor: "#0EBE7E",
         tabBarInactiveTintColor: "#BDBDBD",
         tabBarShowLabel: false,
         tabBarStyle: {
           borderTopLeftRadius: 15,
           borderTopRightRadius: 15,
+          // backgroundColor: "red",
+          height: hp(9.1),
         },
       }}
     >

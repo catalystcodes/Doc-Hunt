@@ -9,30 +9,59 @@ import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
+import PatientImage from "../components/molecules/PatientImage";
+import { ScrollView } from "react-native-gesture-handler";
+import KeyboardAvoidView from "../components/molecules/KeyboardAvoidView";
+import AppButton from "../components/atoms/confirmationButton";
 
 const Appointment = () => {
   return (
     <View>
-      <HeadLine title="Appointment" />
-      <View style={{ paddingHorizontal: wp(5.3) }}>
-        <DocCategoryCard
-          doctorName="Dr. Pediatrician"
-          doctorSpecialty="Specialist Cardiologist "
-          imageSource={require("../assets/Dr. Pediatrician.png")}
-          rating={2}
-          views={"22k"}
-        />
-        <Text style={styles.text}>Appointment For</Text>
-        <View
-          style={{
-            rowGap: hp(2.2),
-          }}
-        >
-          <InputText placeholder="Patient Name" />
-          <InputText placeholder="Contact Number" />
+      <KeyboardAvoidView>
+        <HeadLine title="Appointment" />
+        <View style={{ paddingHorizontal: wp(5.3) }}>
+          <DocCategoryCard
+            doctorName="Dr. Pediatrician"
+            doctorSpecialty="Specialist Cardiologist "
+            imageSource={require("../assets/Dr. Pediatrician.png")}
+            rating={2}
+            views={"22k"}
+          />
+          <Text style={styles.text}>Appointment For</Text>
+          <View
+            style={{
+              rowGap: hp(2.2),
+            }}
+          >
+            <InputText placeholder="Patient Name" />
+            <InputText placeholder="Contact Number" />
+          </View>
+          <Text style={styles.text}>Who is this patient?</Text>
+          <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+            <View style={styles.patientImageSection}>
+              <PatientImage
+                patientType="My Self"
+                patientPhoto={require("../assets/man.jpg")}
+              />
+              <PatientImage
+                patientType="My Child"
+                patientPhoto={require("../assets/child.jpg")}
+              />
+              <PatientImage
+                patientType="My Man"
+                patientPhoto={require("../assets/man.jpg")}
+              />
+              <PatientImage
+                patientType="My Child"
+                patientPhoto={require("../assets/child.jpg")}
+              />
+            </View>
+          </ScrollView>
+          <View style={{ width: wp(78.7), marginHorizontal: "auto" }}>
+            <AppButton text="Next" />
+          </View>
         </View>
-        <Text style={styles.text}>Who is this patient?</Text>
-      </View>
+      </KeyboardAvoidView>
     </View>
   );
 };
@@ -43,6 +72,10 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     marginTop: hp(3.7),
     marginBottom: hp(2.5),
+  },
+  patientImageSection: {
+    flexDirection: "row",
+    marginBottom: hp(2.2),
   },
 });
 
