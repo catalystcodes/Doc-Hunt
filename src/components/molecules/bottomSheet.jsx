@@ -27,18 +27,19 @@ import {
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
 
-// const handleSheetChanges = useCallback((index:) => {
-//   console.log("handleSheetChanges", index);
-// }, []);
+const handleSheetChanges = useCallback((index) => {
+  console.log("handleSheetChanges", index);
+}, []);
+const snapPoints = useMemo(() => ["1%", "45%"], []);
 
 const renderBackdrop = useCallback(
-  (props: any) => (
+  (props) => (
     <BottomSheetBackdrop appearsOnIndex={1} disappearsOnIndex={0} {...props} />
   ),
   []
 );
 
-const BottomSheet = () => {
+const AppBottomSheet = () => {
   return (
     <BottomSheetModalProvider>
       <View>
@@ -100,4 +101,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default BottomSheet;
+export default AppBottomSheet;

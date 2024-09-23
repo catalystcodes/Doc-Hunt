@@ -13,6 +13,7 @@ import BookMark from "../../screens/bookMark";
 import Comment from "../../screens/comment";
 import FavoriteDocPage from "../../screens/favoriteDocPage";
 import { BounceOut } from "react-native-reanimated";
+import HomeStack from "./homeStack";
 
 const Tab = createBottomTabNavigator();
 
@@ -31,8 +32,8 @@ const AppBottomTabs = () => {
       }}
     >
       <Tab.Screen
-        name="homepage"
-        component={Home}
+        name="homeStack"
+        component={HomeStack}
         options={{
           tabBarIcon: ({ color }) => (
             <SimpleLineIcons name="home" size={24} color={color} />

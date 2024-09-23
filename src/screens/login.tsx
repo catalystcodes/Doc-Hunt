@@ -29,11 +29,11 @@ import {
   BottomSheetView,
 } from "@gorhom/bottom-sheet";
 import BottomSheet from "@gorhom/bottom-sheet";
+import Handle from "../components/molecules/bottomSheet";
 
 const Login = ({ navigation }: any) => {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
   const snapPoints = useMemo(() => ["1%", "45%"], []);
-  const handleClosePress = () => bottomSheetModalRef.current?.close();
   const handleOpenPress = () => bottomSheetModalRef.current?.expand();
 
   const handleSheetChanges = useCallback((index: number) => {
@@ -53,9 +53,9 @@ const Login = ({ navigation }: any) => {
 
   return (
     <BottomSheetModalProvider>
-      <View>
+      <View style={{ flexGrow: 1 }}>
         <KeyboardAvoidView>
-          <View style={styles.whole}>
+          <View style={{ flex: 1, paddingTop: hp(3.3) }}>
             <Image
               style={styles.tinyLogo}
               source={require("../assets/backgroundImage1.png")}
@@ -115,7 +115,7 @@ const Login = ({ navigation }: any) => {
                 textAlign: "center",
                 color: "#0EBE7F",
                 marginTop: hp(2.3),
-                marginBottom: hp(15.1),
+                // marginBottom: hp(15.1),
               }}
               onPress={() => {
                 handleOpenPress();
@@ -186,9 +186,6 @@ const Login = ({ navigation }: any) => {
                   marginTop: hp(3.7),
                   backgroundColor: "#0EBE7F",
                 }}
-                // onPress={() => {
-                //   navigation.navigate("home");
-                // }}
               >
                 <Text
                   style={{
@@ -209,11 +206,9 @@ const Login = ({ navigation }: any) => {
   );
 };
 
+export default Login;
+
 const styles = StyleSheet.create({
-  whole: {
-    flex: 1,
-    paddingTop: hp(3.3),
-  },
   header: {
     marginTop: hp("15.4"),
     marginBottom: hp("1.8"),
@@ -295,5 +290,3 @@ const styles = StyleSheet.create({
     borderColor: "#677294",
   },
 });
-
-export default Login;

@@ -84,7 +84,7 @@ interface DocCategoryCardProps {
   doctorName: string;
   doctorSpecialty: string;
   rating: number;
-  views: number;
+  views: number | string;
 }
 
 const DocCategoryCard: React.FC<DocCategoryCardProps> = ({

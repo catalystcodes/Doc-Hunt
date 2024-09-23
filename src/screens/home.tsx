@@ -1,5 +1,12 @@
 import React, { Fragment } from "react";
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
@@ -97,12 +104,18 @@ const Home = ({ navigation }: any) => {
           <View style={{ flexDirection: "row" }}>
             {detailsOfDoc.map((detail, detailIndex) => (
               <Fragment key={detailIndex}>
-                <PopularDocCard
-                  doctorImage={detail.icon}
-                  title={detail.name}
-                  areaOfSpecialist={detail.area}
-                  rateImage={detail.rate}
-                />
+                <Pressable
+                  onPress={() => {
+                    navigation.navigate("appointmentPage");
+                  }}
+                >
+                  <PopularDocCard
+                    doctorImage={detail.icon}
+                    title={detail.name}
+                    areaOfSpecialist={detail.area}
+                    rateImage={detail.rate}
+                  />
+                </Pressable>
               </Fragment>
             ))}
           </View>
