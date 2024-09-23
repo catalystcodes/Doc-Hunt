@@ -1,32 +1,56 @@
-import React from "react";
-import { StyleSheet, TextInput, View } from "react-native";
+import React, { useState } from "react";
+import AntDesign from "@expo/vector-icons/AntDesign";
+import {
+  KeyboardType,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  TextInputProps,
+  View,
+} from "react-native";
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
+import HideIcon from "./icons/hideIcon";
 
-interface InputTextProps {
-  placeholder: string;
-  value?: string;
-  name?: "numeric" | "email-address";
-  onChangeText?: () => void;
-}
+type InputTextProps = TextInputProps & { type?: "password" | "text" };
 
-const InputText = ({
-  placeholder,
-  value,
-  onChangeText,
-  name,
-}: InputTextProps) => {
+const InputText = (props: InputTextProps) => {
+  const { type, secureTextEntry, ...otherProps } = props;
+
+  const [hidePassword, setHidePassword] = useState(true);
+
   return (
     <View>
       <TextInput
-        keyboardType={name}
-        style={styles.inputStyle}
-        placeholder={placeholder}
-        value={value}
-        onChangeText={onChangeText}
+        {...otherProps}
+        style={[styles.inputStyle, otherProps.style]}
+        secureTextEntry={type === "password" ? hidePassword : secureTextEntry}
       />
+      {type === "password" && (
+        <View
+          style={{
+            position: "absolute",
+            right: 0,
+            alignItems: "center",
+            justifyContent: "center",
+            height: "100%",
+            zIndex: 10,
+            // backgroundColor: "#fff",
+            width: wp(14),
+          }}
+        >
+          <Pressable onPress={() => setHidePassword((prev) => !prev)}>
+            {hidePassword ? (
+              <AntDesign name="eye" size={18} color="#677294" />
+            ) : (
+              <HideIcon />
+            )}
+          </Pressable>
+        </View>
+      )}
     </View>
   );
 };
@@ -39,8 +63,7 @@ const styles = StyleSheet.create({
     height: hp(6.7),
     borderRadius: 12,
     paddingLeft: wp(6.7),
-    marginTop: hp(2.2),
-    // backgroundColor: "white",
+    zIndex: 1,
   },
 });
 

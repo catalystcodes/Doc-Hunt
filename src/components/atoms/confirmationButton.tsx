@@ -5,20 +5,12 @@ import {
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
 
-const ConfirmationButton = ({
-  text,
-  Icon,
-}: {
-  text: string;
-  Icon?: ReactNode;
-}) => {
+const AppButton = ({ text, Icon }: { text: string; Icon?: ReactNode }) => {
   return (
-    <View style={styles.view}>
-      <Pressable style={styles.socialButton}>
-        {Icon}
-        <Text style={styles.text}>{text}</Text>
-      </Pressable>
-    </View>
+    <Pressable style={styles.socialButton}>
+      {Icon}
+      <Text style={styles.text}>{text}</Text>
+    </Pressable>
   );
 };
 
@@ -28,14 +20,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     backgroundColor: "#0EBE7F",
     borderRadius: 12,
-    paddingHorizontal: wp("30.7"),
     paddingVertical: hp("2.2"),
-    width: wp("78.7"),
-    marginLeft: wp(10.7),
-    // marginTop: hp(6.7),
+    width: "100%",
   },
 
-  view: {},
   text: {
     color: "white",
     fontWeight: "700",
@@ -43,4 +31,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ConfirmationButton;
+export default AppButton;

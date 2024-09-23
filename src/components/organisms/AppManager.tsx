@@ -1,16 +1,20 @@
 import { NavigationContainer } from "@react-navigation/native";
+import { StatusBar } from "expo-status-bar";
 import React, { ReactNode } from "react";
-import { StyleSheet, View } from "react-native";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 const AppManager = ({ children }: { children: ReactNode }) => {
   return (
-    <SafeAreaProvider>
-      <NavigationContainer>{children}</NavigationContainer>
-    </SafeAreaProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <SafeAreaProvider>
+        <NavigationContainer>
+          <StatusBar backgroundColor="black" />
+          {children}
+        </NavigationContainer>
+      </SafeAreaProvider>
+    </GestureHandlerRootView>
   );
 };
-
-const styles = StyleSheet.create({});
 
 export default AppManager;

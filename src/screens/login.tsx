@@ -238,6 +238,7 @@ const styles = StyleSheet.create({
   button: {
     flexDirection: "row",
     marginBottom: hp("4.2"),
+    columnGap: wp(4),
   },
   checkbox: {
     borderRadius: 50,
@@ -248,6 +249,7 @@ const styles = StyleSheet.create({
   },
   inputSection: {
     marginBottom: hp(1.7),
+    rowGap: hp(2.2),
   },
   teamsAndCondition: {
     flexDirection: "row",

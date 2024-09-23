@@ -1,14 +1,11 @@
 import React from "react";
-import { SafeAreaView, StatusBar, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 import { RootStackParams } from "./utils/types";
-import { SafeAreaProvider } from "react-native-safe-area-context";
 
 //screen
 import SignUp from "./screens/signUp";
 import Login from "./screens/logIn";
-import Home from "./screens/home";
 import AppBottomTabs from "./components/molecules/bottomTab";
 import PopularDoc from "./screens/popularDoc";
 
@@ -16,12 +13,12 @@ const Stack = createStackNavigator<RootStackParams>();
 
 const AppRoutes = () => {
   const { Navigator, Screen } = Stack;
+
   return (
-    <View style={[styles.container, styles.statusBarHeight]}>
-      <StatusBar backgroundColor={"black"} />
+    <View style={styles.container}>
       <Navigator
         screenOptions={{ headerShown: false }}
-        initialRouteName="bottomTab"
+        initialRouteName="signUp"
       >
         <Screen name="signUp" component={SignUp} />
         <Screen name="login" component={Login} />
@@ -36,7 +33,6 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
   },
-  statusBarHeight: {},
 });
 
 export default AppRoutes;

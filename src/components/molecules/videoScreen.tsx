@@ -21,7 +21,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
   const [isPlaying, setIsPlaying] = useState(true);
   const player = useVideoPlayer(videoSource, (player) => {
     player.loop = true;
-    player.play();
+    // player.play();
   });
 
   useEffect(() => {
@@ -41,7 +41,9 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
         style={styles.video}
         player={player}
         allowsFullscreen
+        contentFit="cover"
         allowsPictureInPicture
+
         // VideoContentFit={true}
       />
       {showControls && (
@@ -82,4 +84,3 @@ const styles = StyleSheet.create({
 });
 
 export default VideoPlayer;
-

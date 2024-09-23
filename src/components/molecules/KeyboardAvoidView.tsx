@@ -1,4 +1,3 @@
-import { View, Text, KeyboardAvoidingView } from "react-native";
 import React, { ReactNode } from "react";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 

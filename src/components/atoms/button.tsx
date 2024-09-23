@@ -1,34 +1,43 @@
 import React, { ReactElement, ReactNode, ReactSVGElement } from "react";
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import {
+  ButtonProps,
+  Image,
+  Pressable,
+  PressableProps,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
+type AppButtonProps = PressableProps & { Icon: ReactNode; text: string };
 
-const Button = ({ text, Icon }: { text: string; Icon?: ReactNode }) => {
+const OAuthButton = (props: AppButtonProps) => {
+  const { Icon, text, ...otherProps } = props;
   return (
-    <View>
-      <Pressable style={styles.socialButton}>
-        {Icon}
-        <Text style={styles.text}>{text}</Text>
-      </Pressable>
-    </View>
+    <Pressable {...otherProps} style={[styles.socialButton]}>
+      {Icon}
+      <Text style={styles.text}>{text}</Text>
+    </Pressable>
   );
 };
 
 const styles = StyleSheet.create({
   socialButton: {
     flexDirection: "row",
+    flexGrow: 1,
+    alignItems: "center",
+    justifyContent: "center",
     backgroundColor: "white",
     borderRadius: 12,
-    paddingHorizontal: wp("8"),
-    paddingVertical: hp("2.1"),
-    marginLeft: wp("4"),
+    height: hp(6.7),
+    columnGap: wp("3.2"),
   },
   text: {
-    marginLeft: wp("3.2"),
     color: "#677294",
   },
 });
 
-export default Button;
+export default OAuthButton;

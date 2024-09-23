@@ -58,9 +58,10 @@ const Home = ({ navigation }: any) => {
           </Text>
           <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
             <View style={styles.videos}>
-              <VideoScreen videoSource="http://commondatastorage.googleapis.com/ggtv-videos-bucket/sample/BigBuckBunny.mp4" />
-              <VideoScreen videoSource="http://commondatastorage.googleapis.com/ggtv-videos-bucket/sample/BigBuckBunny.mp4" />
-              <VideoScreen videoSource="http://commondatastorage.googleapis.com/ggtv-videos-bucket/sample/BigBuckBunny.mp4" />
+              {/* <VideoScreen videoSource="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" /> */}
+              <VideoScreen videoSource="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" />
+              <VideoScreen videoSource="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" />
+              <VideoScreen videoSource="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" />
             </View>
           </ScrollView>
           <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
