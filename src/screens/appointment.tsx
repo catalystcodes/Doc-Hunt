@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import HeadLine from "../components/molecules/headeLine";
 import PopularDocCard from "../components/molecules/popularDocCard";
 import DocCategoryCard from "../components/molecules/docCategoryCard";
@@ -13,11 +13,22 @@ import PatientImage from "../components/molecules/PatientImage";
 import { ScrollView } from "react-native-gesture-handler";
 import KeyboardAvoidView from "../components/molecules/KeyboardAvoidView";
 import AppButton from "../components/atoms/confirmationButton";
+import { useNavigation } from "@react-navigation/native";
 
-const Appointment = () => {
+const Appointment = ({ navigation }: any) => {
   return (
     <View>
       <KeyboardAvoidView>
+        <View>
+          <Image
+            style={styles.tinyLogo}
+            source={require("../assets/backgroundImage1.png")}
+          />
+          <Image
+            style={styles.tinyLogo2}
+            source={require("../assets/backgroundImage2.png")}
+          />
+        </View>
         <HeadLine title="Appointment" />
         <View style={{ paddingHorizontal: wp(5.3) }}>
           <DocCategoryCard
@@ -58,7 +69,12 @@ const Appointment = () => {
             </View>
           </ScrollView>
           <View style={{ width: wp(78.7), marginHorizontal: "auto" }}>
-            <AppButton text="Next" />
+            <AppButton
+              onPress={() => {
+                navigation.navigate("appointmentSchedulePage");
+              }}
+              text="Next"
+            />
           </View>
         </View>
       </KeyboardAvoidView>
@@ -67,6 +83,15 @@ const Appointment = () => {
 };
 
 const styles = StyleSheet.create({
+  tinyLogo: {
+    position: "absolute",
+  },
+  tinyLogo2: {
+    flexGrow: 1,
+    position: "absolute",
+    bottom: 0,
+    right: 0,
+  },
   text: {
     fontSize: 16,
     fontWeight: "500",

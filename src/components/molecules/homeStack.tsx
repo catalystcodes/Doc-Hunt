@@ -5,6 +5,7 @@ import SignUp from "../../screens/signUp";
 import { RootStackParams } from "../../utils/types";
 import Home from "../../screens/home";
 import Appointment from "../../screens/appointment";
+import AppointmentSchedule from "../../screens/appointmentSchedule";
 
 // screen;
 
@@ -18,6 +19,10 @@ const HomeStack = () => {
       <Navigator screenOptions={{ headerShown: false }}>
         <Screen name="homepage" component={Home} />
         <Screen name="appointmentPage" component={Appointment} />
+        <Screen
+          name="appointmentSchedulePage"
+          component={AppointmentSchedule}
+        />
       </Navigator>
     </View>
   );

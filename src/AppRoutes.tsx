@@ -8,6 +8,7 @@ import SignUp from "./screens/signUp";
 import Login from "./screens/logIn";
 import AppBottomTabs from "./components/molecules/bottomTab";
 import PopularDoc from "./screens/popularDoc";
+import AppointmentSchedule from "./screens/appointmentSchedule";
 
 const Stack = createStackNavigator<RootStackParams>();
 

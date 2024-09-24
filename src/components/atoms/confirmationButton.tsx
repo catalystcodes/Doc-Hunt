@@ -5,9 +5,17 @@ import {
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
 
-const AppButton = ({ text, Icon }: { text: string; Icon?: ReactNode }) => {
+const AppButton = ({
+  text,
+  Icon,
+  onPress,
+}: {
+  text: string;
+  Icon?: ReactNode;
+  onPress: () => void;
+}) => {
   return (
-    <Pressable style={styles.socialButton}>
+    <Pressable style={styles.socialButton} onPress={onPress}>
       {Icon}
       <Text style={styles.text}>{text}</Text>
     </Pressable>
