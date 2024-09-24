@@ -1,20 +1,96 @@
-import React, { ReactNode, useState } from "react";
-import { StyleSheet, View } from "react-native";
+import React, { Fragment, ReactNode, useState } from "react";
+import { Image, StyleSheet, Text, View } from "react-native";
 import HeadLine from "../components/molecules/headeLine";
 import CalendarScreen from "../components/organisms/calenderScreen";
-import { widthPercentageToDP as wp } from "react-native-responsive-screen";
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from "react-native-responsive-screen";
+import { availableTime } from "../constantData";
+import AvailableTime from "../components/atoms/availableTime";
+import { ScrollView } from "react-native-gesture-handler";
+import AppButton from "../components/atoms/confirmationButton";
 
 const AppointmentSchedule = () => {
   return (
-    <View>
+    <View style={{ flexGrow: 1 }}>
+      <Image
+        style={styles.tinyLogo}
+        source={require("../assets/backgroundImage1.png")}
+      />
+      <Image
+        style={styles.tinyLogo2}
+        source={require("../assets/backgroundImage2.png")}
+      />
       <HeadLine title="Appointment" />
       <View style={{ paddingHorizontal: wp(5.3) }}>
         <CalendarScreen />
+      </View>
+      <View style={styles.timeSection}>
+        <Text style={styles.availableTime}>Available Time</Text>
+        <View
+          style={{
+            flexDirection: "row",
+            columnGap: wp(2.4),
+          }}
+        >
+          {availableTime.map((detail, detailIndex) => (
+            <Fragment key={detailIndex}>
+              <AvailableTime time={detail.time} />
+            </Fragment>
+          ))}
+        </View>
+
+        <Text style={styles.availableTime}>Reminder Me Before </Text>
+        <View
+          style={{
+            flexDirection: "row",
+            columnGap: wp(2.4),
+          }}
+        >
+          {availableTime.map((detail, detailIndex) => (
+            <Fragment key={detailIndex}>
+              <AvailableTime time={detail.time} />
+            </Fragment>
+          ))}
+        </View>
+        <View
+          style={{
+            width: wp(78.7),
+            marginHorizontal: "auto",
+            marginTop: hp(2.5),
+          }}
+        >
+          <AppButton text="Confirm" onPress={() => {}} />
+        </View>
       </View>
     </View>
   );
 };
 
-const styles = StyleSheet.create({});
-
 export default AppointmentSchedule;
+
+const styles = StyleSheet.create({
+  tinyLogo: {
+    position: "absolute",
+  },
+  tinyLogo2: {
+    position: "absolute",
+    bottom: 0,
+    right: 0,
+  },
+  timeSection: {
+    backgroundColor: "white",
+    marginTop: hp(3.4),
+    flexGrow: 1,
+    borderTopLeftRadius: 50,
+    borderTopRightRadius: 50,
+    paddingHorizontal: wp(5.3),
+  },
+  availableTime: {
+    marginTop: hp(4.3),
+    marginBottom: hp(3.3),
+    fontSize: 16,
+    fontWeight: "500",
+  },
+});

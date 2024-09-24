@@ -5,7 +5,7 @@ import {
   Agenda,
   LocaleConfig,
 } from "react-native-calendars";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 
 LocaleConfig.locales["fr"] = {
@@ -57,7 +57,27 @@ const CalenderScreen = () => {
 
   return (
     <Calendar
-      headerStyle={styles.headerStyle}
+      //   customHeaderTitle={StyleShee}
+      //   headerStyle={styles.headerStyle}
+      // renderHeader={(props) => {
+      //   console.log({ props });
+      //   return (
+      //     <View
+      //       style={{
+      //         backgroundColor: "red",
+      //         position: "absolute",
+      //         top: 0,
+      //         left: 0,
+      //         width: "100%",
+      //         height: 100,
+      //         zIndex: 50,
+      //       }}
+      //     >
+      //       <Text>sdsdsdsds</Text>
+      //     </View>
+      //   );
+      // }}
+      hideArrows
       hideExtraDays
       onDayPress={(day) => {
         setSelected(day.dateString);
@@ -75,6 +95,8 @@ const CalenderScreen = () => {
         textSectionTitleColor: "#b6c1cd",
         selectedDayBackgroundColor: "#0EBE7F",
         dayTextColor: "#2d4150",
+        selectedDayTextColor: "#EDEDED",
+        weekVerticalMargin: 0,
       }}
     />
   );
@@ -90,5 +112,9 @@ const styles = StyleSheet.create({
   headerStyle: {
     // backgroundColor: "#0EBE7F",
     // color: "white",
+    padding: 0,
+  },
+  customHeaderTitle: {
+    backgroundColor: "red",
   },
 });

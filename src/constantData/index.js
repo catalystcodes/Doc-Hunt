@@ -107,3 +107,21 @@ export const detailsOfCategoryCard = [
     view: 2003,
   },
 ];
+
+export const availableTime = [
+  {
+    time: "10:00AM",
+  },
+  {
+    time: "12:00AM",
+  },
+  {
+    time: "02:00PM",
+  },
+  {
+    time: "03:00PM",
+  },
+  {
+    time: "04:00PM",
+  },
+];
