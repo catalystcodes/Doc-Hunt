@@ -12,7 +12,7 @@ const AppButton = ({
 }: {
   text: string;
   Icon?: ReactNode;
-  onPress: () => void;
+  onPress?: () => void;
 }) => {
   return (
     <Pressable style={styles.socialButton} onPress={onPress}>

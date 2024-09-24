@@ -1,5 +1,5 @@
 import React, { Fragment, ReactNode, useState } from "react";
-import { Image, Modal, StyleSheet, Text, View } from "react-native";
+import { Image, Modal, Pressable, StyleSheet, Text, View } from "react-native";
 import HeadLine from "../components/molecules/headeLine";
 import CalendarScreen from "../components/organisms/calenderScreen";
 import {
@@ -10,6 +10,7 @@ import { availableTime } from "../constantData";
 import AvailableTime from "../components/atoms/availableTime";
 import { ScrollView } from "react-native-gesture-handler";
 import AppButton from "../components/atoms/confirmationButton";
+import Thumb from "../components/atoms/icons/thumb";
 
 const AppointmentSchedule = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -67,8 +68,52 @@ const AppointmentSchedule = () => {
         </View>
       </View>
       <Modal transparent={true} visible={isModalVisible} animationType="slide">
-        <View style={styles.modalContainer}></View>
-        {/* onPress={() => setIsModalVisible(false)} */}
+        <View style={styles.modalContainer}>
+          <View style={styles.thumb}>
+            <Image source={require("../assets/thumb.png")} />
+          </View>
+          <Text
+            style={{
+              fontSize: 38,
+              color: "#333333",
+              fontWeight: "500",
+              textAlign: "center",
+              marginTop: hp(1.5),
+              marginBottom: hp(0.6),
+            }}
+          >
+            Thank You !
+          </Text>
+          <Text
+            style={{
+              fontSize: 20,
+              color: "#677294",
+              fontWeight: "regular",
+              textAlign: "center",
+              marginTop: hp(1.5),
+              marginBottom: hp(3.6),
+            }}
+          >
+            Your Appointment Successful
+          </Text>
+          <Text
+            style={{
+              fontSize: 14,
+              color: "#677294",
+              fontWeight: "regular",
+              textAlign: "center",
+              marginTop: hp(1.5),
+              marginBottom: hp(3.6),
+              paddingHorizontal: wp(9.3),
+            }}
+          >
+            You booked an appointment with Dr. Pediatrician Purpieson on
+            February 21, at 02:00 PM
+          </Text>
+          <View style={{ width: wp(78.7), marginHorizontal: "auto" }}>
+            <AppButton text="Done" onPress={() => setIsModalVisible(false)} />
+          </View>
+        </View>
       </Modal>
     </View>
   );
@@ -102,6 +147,20 @@ const styles = StyleSheet.create({
   modalContainer: {
     height: hp(64),
     width: wp(89.3),
-    backgroundColor: "blue",
+    backgroundColor: "#a3a3a3",
+    marginVertical: hp(18),
+    marginHorizontal: wp(5.3),
+    borderRadius: 16,
+    // paddingHorizontal: wp(8.8),
+  },
+  thumb: {
+    backgroundColor: "#E7F8F2",
+    height: hp(19.2),
+    width: wp(41.6),
+    borderRadius: 100,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: hp(3.2),
+    marginLeft: wp(25.6),
   },
 });
