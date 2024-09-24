@@ -1,5 +1,5 @@
 import React, { Fragment, ReactNode, useState } from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, Modal, StyleSheet, Text, View } from "react-native";
 import HeadLine from "../components/molecules/headeLine";
 import CalendarScreen from "../components/organisms/calenderScreen";
 import {
@@ -12,6 +12,8 @@ import { ScrollView } from "react-native-gesture-handler";
 import AppButton from "../components/atoms/confirmationButton";
 
 const AppointmentSchedule = () => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
   return (
     <View style={{ flexGrow: 1 }}>
       <Image
@@ -50,7 +52,7 @@ const AppointmentSchedule = () => {
         >
           {availableTime.map((detail, detailIndex) => (
             <Fragment key={detailIndex}>
-              <AvailableTime time={detail.time} />
+              <AvailableTime time="30 Mint" />
             </Fragment>
           ))}
         </View>
@@ -61,9 +63,13 @@ const AppointmentSchedule = () => {
             marginTop: hp(2.5),
           }}
         >
-          <AppButton text="Confirm" onPress={() => {}} />
+          <AppButton text="Confirm" onPress={() => setIsModalVisible(true)} />
         </View>
       </View>
+      <Modal transparent={true} visible={isModalVisible} animationType="slide">
+        <View style={styles.modalContainer}></View>
+        {/* onPress={() => setIsModalVisible(false)} */}
+      </Modal>
     </View>
   );
 };
@@ -92,5 +98,10 @@ const styles = StyleSheet.create({
     marginBottom: hp(3.3),
     fontSize: 16,
     fontWeight: "500",
+  },
+  modalContainer: {
+    height: hp(64),
+    width: wp(89.3),
+    backgroundColor: "blue",
   },
 });
