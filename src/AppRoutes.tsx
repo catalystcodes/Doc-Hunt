@@ -19,7 +19,7 @@ const AppRoutes = () => {
     <View style={styles.container}>
       <Navigator
         screenOptions={{ headerShown: false }}
-        initialRouteName="signUp"
+        initialRouteName="appointmentSchedulePage"
       >
         <Screen name="signUp" component={SignUp} />
         <Screen name="login" component={Login} />

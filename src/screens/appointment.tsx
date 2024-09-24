@@ -45,7 +45,10 @@ const Appointment = ({ navigation }: any) => {
             }}
           >
             <InputText placeholder="Patient Name" />
-            <InputText placeholder="Contact Number" />
+            <InputText
+              placeholder="Contact Number"
+              keyboardType="decimal-pad"
+            />
           </View>
           <Text style={styles.text}>Who is this patient?</Text>
           <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>

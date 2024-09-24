@@ -32,6 +32,7 @@ const AppBottomTabs = () => {
           borderTopLeftRadius: 15,
           borderTopRightRadius: 15,
           // backgroundColor: "red",
+
           height: hp(9.1),
         },
       }}
