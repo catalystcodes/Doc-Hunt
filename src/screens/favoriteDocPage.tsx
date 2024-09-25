@@ -1,5 +1,12 @@
 import React, { Fragment } from "react";
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
@@ -13,7 +20,7 @@ import FeatureDoc from "../components/molecules/featureDoc";
 import HeaderPage from "../components/molecules/headeLine";
 import HeadLine from "../components/molecules/headeLine";
 
-const FavoriteDocPage = () => {
+const FavoriteDocPage = ({ navigation }: any) => {
   return (
     <View style={{ flexGrow: 1 }}>
       <Image
@@ -29,15 +36,22 @@ const FavoriteDocPage = () => {
         <SearchArea placeholder="Search" />
         <View style={styles.separator}></View>
         <View style={styles.favDoc}>
-          {favoriteDocDetails.map((favorite, favoriteIndex) => (
-            <Fragment key={favoriteIndex}>
-              <FavoriteDocCard
-                title={favorite.name}
-                docAvatar={favorite.icon}
-                areaofspecialist={favorite.area}
-              />
-            </Fragment>
-          ))}
+          <Pressable
+            style={styles.favDoc}
+            onPress={() => {
+              navigation.navigate("docdetails");
+            }}
+          >
+            {favoriteDocDetails.map((favorite, favoriteIndex) => (
+              <Fragment key={favoriteIndex}>
+                <FavoriteDocCard
+                  title={favorite.name}
+                  docAvatar={favorite.icon}
+                  areaofspecialist={favorite.area}
+                />
+              </Fragment>
+            ))}
+          </Pressable>
           <View
             style={{
               flexDirection: "row",

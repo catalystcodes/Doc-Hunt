@@ -7,4 +7,6 @@ export type RootStackParams = {
   popularDocFullPage: undefined;
   appointmentPage: undefined;
   appointmentSchedulePage: undefined;
+  docdetails: undefined;
+  favoriteDocPage: undefined;
 };

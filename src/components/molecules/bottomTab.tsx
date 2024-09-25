@@ -15,6 +15,7 @@ import FavoriteDocPage from "../../screens/favoriteDocPage";
 import { BounceOut } from "react-native-reanimated";
 import HomeStack from "./homeStack";
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
+import FavStack from "./favStack";
 
 const Tab = createBottomTabNavigator();
 
@@ -47,8 +48,8 @@ const AppBottomTabs = () => {
         }}
       />
       <Tab.Screen
-        name="favoriteDocPage"
-        component={FavoriteDocPage}
+        name="favStack"
+        component={FavStack}
         options={{
           tabBarIcon: ({ color }) => (
             <MaterialIcons name="favorite" size={24} color={color} />

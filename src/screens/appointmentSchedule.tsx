@@ -67,63 +67,35 @@ const AppointmentSchedule = ({ navigation }: any) => {
           <AppButton text="Confirm" onPress={() => setIsModalVisible(true)} />
         </View>
       </View>
-      <Modal transparent={false} visible={isModalVisible} animationType="slide">
+      <Modal transparent={true} visible={isModalVisible} animationType="fade">
         <View style={styles.modalContainer}>
-          <View style={styles.thumb}>
-            <Image source={require("../assets/thumb.png")} />
+          <View style={styles.subModalContainer}>
+            <View style={styles.thumb}>
+              <Image source={require("../assets/thumb.png")} />
+            </View>
+            <Text style={styles.thankYou}>Thank You !</Text>
+            <Text style={styles.appointmentSuccessful}>
+              Your Appointment Successful
+            </Text>
+            <Text style={styles.approval}>
+              You booked an appointment with Dr. Pediatrician Purpieson on
+              February 21, at 02:00 PM
+            </Text>
+            <View style={{ width: wp(78.7), marginHorizontal: "auto" }}>
+              <AppButton text="Done" onPress={() => setIsModalVisible(false)} />
+            </View>
+            <Text
+              style={{
+                color: "#677294",
+                fontSize: 14,
+                textAlign: "center",
+                marginTop: hp(2.2),
+              }}
+              onPress={() => navigation.navigate("appointmentPage")}
+            >
+              Edit your appointment
+            </Text>
           </View>
-          <Text
-            style={{
-              fontSize: 38,
-              color: "#333333",
-              fontWeight: "500",
-              textAlign: "center",
-              marginTop: hp(1.5),
-              marginBottom: hp(0.6),
-            }}
-          >
-            Thank You !
-          </Text>
-          <Text
-            style={{
-              fontSize: 20,
-              color: "#677294",
-              fontWeight: "regular",
-              textAlign: "center",
-              marginTop: hp(1.5),
-              marginBottom: hp(3.6),
-            }}
-          >
-            Your Appointment Successful
-          </Text>
-          <Text
-            style={{
-              fontSize: 14,
-              color: "#677294",
-              fontWeight: "regular",
-              textAlign: "center",
-              marginTop: hp(1.5),
-              marginBottom: hp(3.6),
-              paddingHorizontal: wp(9.3),
-            }}
-          >
-            You booked an appointment with Dr. Pediatrician Purpieson on
-            February 21, at 02:00 PM
-          </Text>
-          <View style={{ width: wp(78.7), marginHorizontal: "auto" }}>
-            <AppButton text="Done" onPress={() => setIsModalVisible(false)} />
-          </View>
-          <Text
-            style={{
-              color: "#677294",
-              fontSize: 14,
-              textAlign: "center",
-              marginTop: hp(2.2),
-            }}
-            onPress={() => navigation.navigate("appointmentPage")}
-          >
-            Edit your appointment
-          </Text>
         </View>
       </Modal>
     </View>
@@ -156,18 +128,15 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
   modalContainer: {
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+  },
+  subModalContainer: {
     height: hp(64),
     width: wp(89.3),
     backgroundColor: "white",
     marginVertical: hp(18),
     marginHorizontal: wp(5.3),
-    // shadowColor: "#000",
-    // shadowOffset: { width: 0, height: 5 },
-    // shadowOpacity: 0.2,
-    // elevation: 2,
-    // borderStyle: "solid",
-
-    // paddingHorizontal: wp(8.8),
+    borderRadius: 16,
   },
   thumb: {
     backgroundColor: "#E7F8F2",
@@ -178,5 +147,30 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: hp(3.2),
     marginLeft: wp(25.6),
+  },
+  thankYou: {
+    fontSize: 38,
+    color: "#333333",
+    fontWeight: "500",
+    textAlign: "center",
+    marginTop: hp(1.5),
+    marginBottom: hp(0.6),
+  },
+  appointmentSuccessful: {
+    fontSize: 20,
+    color: "#677294",
+    fontWeight: "regular",
+    textAlign: "center",
+    marginTop: hp(1.5),
+    marginBottom: hp(3.6),
+  },
+  approval: {
+    fontSize: 14,
+    color: "#677294",
+    fontWeight: "regular",
+    textAlign: "center",
+    marginTop: hp(1.5),
+    marginBottom: hp(3.6),
+    paddingHorizontal: wp(9.3),
   },
 });

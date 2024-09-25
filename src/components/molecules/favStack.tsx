@@ -7,18 +7,19 @@ import Home from "../../screens/home";
 import Appointment from "../../screens/appointment";
 import AppointmentSchedule from "../../screens/appointmentSchedule";
 import DocDetails from "../../screens/docDetails";
+import FavoriteDocPage from "../../screens/favoriteDocPage";
 
 // screen;
 
 const Stack = createStackNavigator<RootStackParams>();
 
-const HomeStack = () => {
+const FavStack = () => {
   const { Navigator, Screen } = Stack;
 
   return (
     <View style={styles.container}>
       <Navigator screenOptions={{ headerShown: false }}>
-        <Screen name="homepage" component={Home} />
+        <Screen name="favoriteDocPage" component={FavoriteDocPage} />
         <Screen name="appointmentPage" component={Appointment} />
         <Screen
           name="appointmentSchedulePage"
@@ -36,4 +37,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeStack;
+export default FavStack;
