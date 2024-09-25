@@ -12,7 +12,7 @@ import { ScrollView } from "react-native-gesture-handler";
 import AppButton from "../components/atoms/confirmationButton";
 import Thumb from "../components/atoms/icons/thumb";
 
-const AppointmentSchedule = () => {
+const AppointmentSchedule = ({ navigation }: any) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   return (
@@ -67,7 +67,7 @@ const AppointmentSchedule = () => {
           <AppButton text="Confirm" onPress={() => setIsModalVisible(true)} />
         </View>
       </View>
-      <Modal transparent={true} visible={isModalVisible} animationType="slide">
+      <Modal transparent={false} visible={isModalVisible} animationType="slide">
         <View style={styles.modalContainer}>
           <View style={styles.thumb}>
             <Image source={require("../assets/thumb.png")} />
@@ -113,6 +113,17 @@ const AppointmentSchedule = () => {
           <View style={{ width: wp(78.7), marginHorizontal: "auto" }}>
             <AppButton text="Done" onPress={() => setIsModalVisible(false)} />
           </View>
+          <Text
+            style={{
+              color: "#677294",
+              fontSize: 14,
+              textAlign: "center",
+              marginTop: hp(2.2),
+            }}
+            onPress={() => navigation.navigate("appointmentPage")}
+          >
+            Edit your appointment
+          </Text>
         </View>
       </Modal>
     </View>
@@ -147,10 +158,15 @@ const styles = StyleSheet.create({
   modalContainer: {
     height: hp(64),
     width: wp(89.3),
-    backgroundColor: "#a3a3a3",
+    backgroundColor: "white",
     marginVertical: hp(18),
     marginHorizontal: wp(5.3),
-    borderRadius: 16,
+    // shadowColor: "#000",
+    // shadowOffset: { width: 0, height: 5 },
+    // shadowOpacity: 0.2,
+    // elevation: 2,
+    // borderStyle: "solid",
+
     // paddingHorizontal: wp(8.8),
   },
   thumb: {
