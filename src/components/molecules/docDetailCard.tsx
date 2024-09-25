@@ -12,7 +12,7 @@ interface DocCategoryCardProps {
   imageSource: any;
   doctorName: string;
   doctorSpecialty: string;
-  rating: number;
+  rating: number | string;
   views: number | string;
 }
 
@@ -36,8 +36,9 @@ const DocDetailCard: React.FC<DocCategoryCardProps> = ({
           <View style={styles.subWhole1}>
             <Image source={require("../../assets/star.png")} />
             <Text style={styles.rate}>
+              <Text style={{ color: "#0EBE7F", fontSize: 16 }}>$</Text>
               {rating}
-              <Text style={styles.view}>({views} views)</Text>
+              {/* <Text style={styles.view}>({views} views)</Text> */}
             </Text>
           </View>
         </View>
@@ -72,6 +73,7 @@ const styles = StyleSheet.create({
   subWhole1: {
     flexDirection: "row",
     alignItems: "center",
+    columnGap: wp(11.5),
   },
   docName: {
     fontSize: 18,

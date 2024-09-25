@@ -134,6 +134,7 @@ const styles = StyleSheet.create({
   subWhole1: {
     flexDirection: "row",
     alignItems: "center",
+    columnGap: wp(11.5),
   },
   docName: {
     fontSize: 18,

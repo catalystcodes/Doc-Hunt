@@ -131,7 +131,7 @@ export const docDetailCard = [
     avatar: require("../assets/Dr. Pediatrician.png"),
     name: "Dr. Pediatrician",
     area: "Medicine Specialist",
-    rate: 3.4,
+    rate: "28.00/hr",
     view: 2003,
   },
 ];
