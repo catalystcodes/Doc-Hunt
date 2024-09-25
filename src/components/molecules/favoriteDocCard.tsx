@@ -1,11 +1,12 @@
 import React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
 import FavIcon from "../atoms/icons/favIcon";
 import FavBigIcon from "../atoms/icons/favBigIcon";
+import { useNavigation } from "@react-navigation/native";
 
 const FavoriteDocCard = ({
   docAvatar,
@@ -16,6 +17,8 @@ const FavoriteDocCard = ({
   title: string;
   areaofspecialist: string;
 }) => {
+  const navigation: any = useNavigation();
+
   return (
     <View style={styles.whole}>
       <View style={styles.header}>
@@ -23,24 +26,30 @@ const FavoriteDocCard = ({
         <FavBigIcon />
       </View>
       <Image source={docAvatar} style={{ marginLeft: wp(10.1) }} />
-      <Text
-        style={{
-          textAlign: "center",
-          marginTop: hp(1.4),
-          marginBottom: hp(0.5),
-          fontWeight: "500",
+      <Pressable
+        onPress={() => {
+          navigation.navigate("docdetails");
         }}
       >
-        {title}
-      </Text>
-      <Text
-        style={{
-          textAlign: "center",
-          color: "#0EBE7E",
-        }}
-      >
-        {areaofspecialist}
-      </Text>
+        <Text
+          style={{
+            textAlign: "center",
+            marginTop: hp(1.4),
+            marginBottom: hp(0.5),
+            fontWeight: "500",
+          }}
+        >
+          {title}
+        </Text>
+        <Text
+          style={{
+            textAlign: "center",
+            color: "#0EBE7E",
+          }}
+        >
+          {areaofspecialist}
+        </Text>
+      </Pressable>
     </View>
   );
 };

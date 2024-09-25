@@ -125,3 +125,13 @@ export const availableTime = [
     time: "04:00PM",
   },
 ];
+
+export const docDetailCard = [
+  {
+    avatar: require("../assets/Dr. Pediatrician.png"),
+    name: "Dr. Pediatrician",
+    area: "Medicine Specialist",
+    rate: 3.4,
+    view: 2003,
+  },
+];

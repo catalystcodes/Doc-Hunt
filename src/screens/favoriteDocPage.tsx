@@ -36,22 +36,16 @@ const FavoriteDocPage = ({ navigation }: any) => {
         <SearchArea placeholder="Search" />
         <View style={styles.separator}></View>
         <View style={styles.favDoc}>
-          <Pressable
-            style={styles.favDoc}
-            onPress={() => {
-              navigation.navigate("docdetails");
-            }}
-          >
-            {favoriteDocDetails.map((favorite, favoriteIndex) => (
-              <Fragment key={favoriteIndex}>
-                <FavoriteDocCard
-                  title={favorite.name}
-                  docAvatar={favorite.icon}
-                  areaofspecialist={favorite.area}
-                />
-              </Fragment>
-            ))}
-          </Pressable>
+          {favoriteDocDetails.map((favorite, favoriteIndex) => (
+            <Fragment key={favoriteIndex}>
+              <FavoriteDocCard
+                title={favorite.name}
+                docAvatar={favorite.icon}
+                areaofspecialist={favorite.area}
+              />
+            </Fragment>
+          ))}
+
           <View
             style={{
               flexDirection: "row",
