@@ -2,6 +2,7 @@ import React from "react";
 import {
   Image,
   ImageSourcePropType,
+  Pressable,
   StyleSheet,
   Text,
   View,
@@ -11,6 +12,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
+import { DrawerActions, useNavigation } from "@react-navigation/native";
 
 const DrawerHeadline = ({
   userAvatar,
@@ -21,26 +23,38 @@ const DrawerHeadline = ({
   userName: string;
   userPhoneNumber: number | string;
 }) => {
+  const navigation = useNavigation();
   return (
     <View
       style={{
         flexDirection: "row",
         alignItems: "center",
         marginHorizontal: wp(5.3),
-        justifyContent: "space-between",
       }}
     >
       <Image source={userAvatar} />
+      <View style={styles.separator1}></View>
       <View>
-        <Text>{userName}</Text>
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
+        <Text style={{ color: "white", fontSize: 16, fontWeight: "500" }}>
+          {userName}
+        </Text>
+        <View style={{ flexDirection: "row", marginTop: hp(0.7) }}>
           <CallIcon />
-          <Text>{userPhoneNumber}</Text>
+          <Text style={{ color: "white", fontSize: 12 }}>
+            {userPhoneNumber}
+          </Text>
         </View>
       </View>
-      <View style={styles.cancel}>
+      <View style={styles.separator2}></View>
+
+      <Pressable
+        style={styles.cancel}
+        onPress={() => {
+          navigation.dispatch(DrawerActions.closeDrawer());
+        }}
+      >
         <Text style={{ color: "white", fontSize: 18 }}>X</Text>
-      </View>
+      </Pressable>
     </View>
   );
 };
@@ -54,5 +68,11 @@ const styles = StyleSheet.create({
     width: wp(8),
     justifyContent: "center",
     alignItems: "center",
+  },
+  separator1: {
+    paddingHorizontal: wp(3.1),
+  },
+  separator2: {
+    paddingHorizontal: wp(16.6),
   },
 });

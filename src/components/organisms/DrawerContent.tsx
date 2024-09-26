@@ -5,6 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 import { DrawerActions } from "@react-navigation/native";
 import { drawerItems, userInfo } from "../../constantData";
 import DrawerHeadline from "../molecules/drawerHeadline";
+import DrawerCards from "../molecules/drawerCards";
 
 const DrawerContent = (props: any) => {
   const navigation = useNavigation();
@@ -16,10 +17,6 @@ const DrawerContent = (props: any) => {
           display: "flex",
         }}
       >
-        {/* onPress={() => {
-            navigation.dispatch(DrawerActions.closeDrawer());
-          }} */}
-
         {userInfo.map((favorite, favoriteIndex) => (
           <Fragment key={favoriteIndex}>
             <DrawerHeadline
@@ -29,6 +26,9 @@ const DrawerContent = (props: any) => {
             />
           </Fragment>
         ))}
+        <View>
+          <DrawerCards />
+        </View>
       </DrawerContentScrollView>
     </View>
   );
