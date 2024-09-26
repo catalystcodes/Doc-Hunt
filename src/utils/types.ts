@@ -9,4 +9,5 @@ export type RootStackParams = {
   appointmentSchedulePage: undefined;
   docdetails: undefined;
   favoriteDocPage: undefined;
+  drawerTab: undefined;
 };

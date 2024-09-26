@@ -9,6 +9,7 @@ import Login from "./screens/logIn";
 import AppBottomTabs from "./components/molecules/bottomTab";
 import PopularDoc from "./screens/popularDoc";
 import AppointmentSchedule from "./screens/appointmentSchedule";
+import DrawerScreens from "./screens/drawerScreen";
 
 const Stack = createStackNavigator<RootStackParams>();
 
@@ -19,11 +20,11 @@ const AppRoutes = () => {
     <View style={styles.container}>
       <Navigator
         screenOptions={{ headerShown: false }}
-        initialRouteName="appointmentSchedulePage"
+        initialRouteName="signUp"
       >
         <Screen name="signUp" component={SignUp} />
         <Screen name="login" component={Login} />
-        <Screen name="bottomTab" component={AppBottomTabs} />
+        <Screen name="drawerTab" component={DrawerScreens} />
         <Screen name="popularDocFullPage" component={PopularDoc} />
       </Navigator>
     </View>

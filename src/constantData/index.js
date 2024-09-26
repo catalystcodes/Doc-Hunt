@@ -1,3 +1,38 @@
+export const drawerItems = [
+  {
+    // icon: require("../../assets/images/accsetting.png"),
+    name: "account settings",
+  },
+  {
+    // icon: require("../../assets/images/notification.png"),
+    name: "notifications",
+  },
+  {
+    // icon: require("../../assets/images/security.png"),
+    name: "security",
+  },
+  {
+    // icon: require("../../assets/images/faq.png"),
+    name: "faq",
+  },
+  {
+    // icon: require("../../assets/images/theme.png"),
+    name: "theme",
+  },
+  {
+    // icon: require("../../assets/images/theme.png"),
+    name: "theme",
+  },
+  {
+    // icon: require("../../assets/images/theme.png"),
+    name: "theme",
+  },
+  {
+    // icon: require("../../assets/images/theme.png"),
+    name: "theme",
+  },
+];
+
 export const detailsOfDoc = [
   {
     icon: require("../assets/doc1.png"),

@@ -95,7 +95,7 @@ const Login = ({ navigation }: any) => {
                 backgroundColor: "#0EBE7F",
               }}
               onPress={() => {
-                navigation.navigate("bottomTab");
+                navigation.navigate("drawerTab");
               }}
             >
               <Text
