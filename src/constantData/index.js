@@ -1,35 +1,52 @@
+import ArrowBack from "../components/atoms/icons/arrowback";
+import DocIcon from "../components/atoms/icons/docIcon";
+import HelpCenterIcon from "../components/atoms/icons/helpCenterIcon";
+import MedicalIcon from "../components/atoms/icons/medicalOrder";
+import PnpIcon from "../components/atoms/icons/p&pIcon";
+import PaymentIcon from "../components/atoms/icons/paymentIcon";
+import SettingIcon from "../components/atoms/icons/settingIcon";
+import TestBookingIcon from "../components/atoms/icons/testBookingIcon";
+
 export const drawerItems = [
   {
-    // icon: require("../../assets/images/accsetting.png"),
-    name: "account settings",
+    icon: <DocIcon />,
+    name: "My Doctors",
   },
   {
-    // icon: require("../../assets/images/notification.png"),
-    name: "notifications",
+    icon: <MedicalIcon />,
+    name: "Medical Records ",
   },
   {
-    // icon: require("../../assets/images/security.png"),
-    name: "security",
+    icon: <PaymentIcon />,
+    name: "Payments",
   },
   {
-    // icon: require("../../assets/images/faq.png"),
-    name: "faq",
+    icon: <MedicalIcon />,
+    name: "Medicine Orders",
   },
   {
-    // icon: require("../../assets/images/theme.png"),
-    name: "theme",
+    icon: <TestBookingIcon />,
+    name: "Test Bookings",
   },
   {
-    // icon: require("../../assets/images/theme.png"),
-    name: "theme",
+    icon: <PnpIcon />,
+    name: "Privacy & Policy",
   },
   {
-    // icon: require("../../assets/images/theme.png"),
-    name: "theme",
+    icon: <HelpCenterIcon />,
+    name: "Help Center",
   },
   {
-    // icon: require("../../assets/images/theme.png"),
-    name: "theme",
+    icon: <SettingIcon />,
+    name: "Settings",
+  },
+];
+
+export const userInfo = [
+  {
+    userAvatar: <userAvatar />,
+    userName: "Abdullah Mamun",
+    userPhoneNumber: "01303-527300",
   },
 ];
 

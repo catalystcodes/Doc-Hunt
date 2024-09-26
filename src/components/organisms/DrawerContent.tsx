@@ -1,9 +1,10 @@
 import { View, Text, Image, Pressable, StyleSheet } from "react-native";
-import React from "react";
+import React, { Fragment } from "react";
 import { DrawerContentScrollView } from "@react-navigation/drawer";
 import { useNavigation } from "@react-navigation/native";
 import { DrawerActions } from "@react-navigation/native";
-import { drawerItems } from "../../constantData";
+import { drawerItems, userInfo } from "../../constantData";
+import DrawerHeadline from "../molecules/drawerHeadline";
 
 const DrawerContent = (props: any) => {
   const navigation = useNavigation();
@@ -15,71 +16,19 @@ const DrawerContent = (props: any) => {
           display: "flex",
         }}
       >
-        <Text
-          onPress={() => {
+        {/* onPress={() => {
             navigation.dispatch(DrawerActions.closeDrawer());
-          }}
-        >
-          Close
-        </Text>
-        {/* <View style={{ marginLeft: 20, marginTop: 10 }}>
-          <View
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              marginBottom: 50,
-              justifyContent: "space-between",
-            }}
-          >
-            <Pressable
-              style={{
-                paddingRight: 20,
-                paddingVertical: 10,
-              }}
-              onPress={() => {
-                navigation.dispatch(DrawerActions.closeDrawer());
-              }}
-            >
-              <Image source={require(`../../assets/images/close.png`)} />
-            </Pressable>
-            <Text style={{ fontSize: 20, fontWeight: "400" }}>Menu</Text>
-            <Text />
-          </View>
-          {drawerItems.map((menuItem, itemIndex) => (
-            <Pressable
-              key={itemIndex}
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                marginBottom: 26,
-              }}
-              //   onPress={() => {
-              //     navigation.navigate(menuItem.name);
-              //   }}
-            >
-              <Image source={menuItem.icon} />
-              <Text
-                style={{
-                  marginLeft: 20,
-                  fontSize: 16,
-                  fontWeight: "300",
-                  textTransform: "capitalize",
-                }}
-              >
-                {menuItem.name}
-              </Text>
-            </Pressable>
-          ))}
-          <Pressable
-          // onPress={() => {
-          //   navigation.navigate("");
-          // }}
-          >
-            <Text style={styles.signOutText}>Sign Out</Text>
-          </Pressable>
-        </View> */}
+          }} */}
+
+        {userInfo.map((favorite, favoriteIndex) => (
+          <Fragment key={favoriteIndex}>
+            <DrawerHeadline
+              userAvatar={require("../../assets/userAvater.png")}
+              userName={favorite.userName}
+              userPhoneNumber={favorite.userPhoneNumber}
+            />
+          </Fragment>
+        ))}
       </DrawerContentScrollView>
     </View>
   );
