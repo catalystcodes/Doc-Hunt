@@ -135,3 +135,11 @@ export const docDetailCard = [
     view: 2003,
   },
 ];
+
+export const docProgress = [
+  {
+    running: 100,
+    onGoing: 500,
+    patient: 700,
+  },
+];

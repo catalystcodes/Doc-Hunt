@@ -7,6 +7,7 @@ import {
 import FavIcon from "../atoms/icons/favIcon";
 import BigFavIcon from "../atoms/icons/bigFavIcon";
 import AppButton from "../atoms/confirmationButton";
+import DocProgress from "./docProgress";
 
 interface DocCategoryCardProps {
   imageSource: any;
@@ -93,6 +94,8 @@ const styles = StyleSheet.create({
   },
   rate: {
     fontSize: 16,
+    color: "#677294",
+    fontWeight: "light",
     marginLeft: wp(9.9),
   },
 });
