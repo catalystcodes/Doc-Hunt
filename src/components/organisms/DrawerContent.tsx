@@ -6,6 +6,10 @@ import { DrawerActions } from "@react-navigation/native";
 import { drawerItems, userInfo } from "../../constantData";
 import DrawerHeadline from "../molecules/drawerHeadline";
 import DrawerCards from "../molecules/drawerCards";
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from "react-native-responsive-screen";
 
 const DrawerContent = (props: any) => {
   const navigation = useNavigation();
@@ -21,13 +25,18 @@ const DrawerContent = (props: any) => {
           <Fragment key={favoriteIndex}>
             <DrawerHeadline
               userAvatar={require("../../assets/userAvater.png")}
+              //   userAvatar={favorite.userAvatar}
               userName={favorite.userName}
               userPhoneNumber={favorite.userPhoneNumber}
             />
           </Fragment>
         ))}
-        <View>
-          <DrawerCards />
+        <View style={{ marginTop: hp(8.9), marginLeft: wp(5.3) }}>
+          {drawerItems.map((favorite, favoriteIndex) => (
+            <Fragment key={favoriteIndex}>
+              <DrawerCards title={favorite.name} icon={favorite.icon} />
+            </Fragment>
+          ))}
         </View>
       </DrawerContentScrollView>
     </View>

@@ -9,35 +9,35 @@ import TestBookingIcon from "../components/atoms/icons/testBookingIcon";
 
 export const drawerItems = [
   {
-    icon: <DocIcon />,
+    icon: require("../assets/mydoctorpics.png"),
     name: "My Doctors",
   },
   {
-    icon: <MedicalIcon />,
+    icon: require("../assets/medicalrecordspics.png"),
     name: "Medical Records ",
   },
   {
-    icon: <PaymentIcon />,
+    icon: require("../assets/paymentpics.png"),
     name: "Payments",
   },
   {
-    icon: <MedicalIcon />,
+    icon: require("../assets/medcineorderpics.png"),
     name: "Medicine Orders",
   },
   {
-    icon: <TestBookingIcon />,
+    icon: require("../assets/testbookingpics.png"),
     name: "Test Bookings",
   },
   {
-    icon: <PnpIcon />,
+    icon: require("../assets/pppics.png"),
     name: "Privacy & Policy",
   },
   {
-    icon: <HelpCenterIcon />,
+    icon: require("../assets/helpcenterpics.png"),
     name: "Help Center",
   },
   {
-    icon: <SettingIcon />,
+    icon: require("../assets/settingspics.png"),
     name: "Settings",
   },
 ];
