@@ -8,6 +8,7 @@ import FavIcon from "../atoms/icons/favIcon";
 import BigFavIcon from "../atoms/icons/bigFavIcon";
 import AppButton from "../atoms/confirmationButton";
 import DocProgress from "./docProgress";
+import { useNavigation } from "@react-navigation/native";
 
 interface DocCategoryCardProps {
   imageSource: any;
@@ -24,6 +25,7 @@ const DocDetailCard: React.FC<DocCategoryCardProps> = ({
   rating,
   views,
 }) => {
+  const navigation: any = useNavigation();
   return (
     <View style={styles.whole}>
       <View style={styles.subWhole}>
@@ -39,7 +41,6 @@ const DocDetailCard: React.FC<DocCategoryCardProps> = ({
             <Text style={styles.rate}>
               <Text style={{ color: "#0EBE7F", fontSize: 16 }}>$</Text>
               {rating}
-              {/* <Text style={styles.view}>({views} views)</Text> */}
             </Text>
           </View>
         </View>
@@ -51,7 +52,12 @@ const DocDetailCard: React.FC<DocCategoryCardProps> = ({
           marginTop: hp(1.8),
         }}
       >
-        <AppButton text="Book Now" />
+        <AppButton
+          text="Book Now"
+          onPress={() => {
+            navigation.navigate("appointmentPage");
+          }}
+        />
       </View>
     </View>
   );
