@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import {
   Image,
   ImageSourcePropType,
@@ -13,14 +13,15 @@ import {
 } from "react-native-responsive-screen";
 import BigFavIcon from "../atoms/icons/bigFavIcon";
 import AppButton from "../atoms/confirmationButton";
+import { useNavigation } from "@react-navigation/native";
 
 interface DocCardProps {
   name: string;
   image: ImageSourcePropType;
   specialty: string;
   yearOfExperience: string;
-  percentage: string;
-  patientStories: string;
+  percentage: number;
+  patientStories: number;
   nextAvailableTime: string;
   likeIcon: ImageSourcePropType;
 }
@@ -35,6 +36,7 @@ const MyDoctorCard = ({
   nextAvailableTime,
   likeIcon,
 }: DocCardProps) => {
+  const navigation = useNavigation();
   return (
     <View style={styles.whole}>
       <View style={styles.subWhole1}>
@@ -66,7 +68,12 @@ const MyDoctorCard = ({
             tomorrow
           </Text>
         </View>
-        <Pressable style={styles.buttonStyle}>
+        <Pressable
+          style={styles.buttonStyle}
+          onPress={() => {
+            navigation.navigate("appointmentPage");
+          }}
+        >
           <Text style={{ fontSize: 12, fontWeight: "500", color: "white" }}>
             Book Now
           </Text>
@@ -85,6 +92,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 8,
     paddingHorizontal: wp(5.3),
+    marginBottom: hp(1.2),
     paddingTop: hp(2.2),
   },
   subWhole1: {
