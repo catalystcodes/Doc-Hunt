@@ -44,7 +44,6 @@ const styles = StyleSheet.create({
   whole: {
     flexDirection: "row",
     alignItems: "center",
-    // backgroundColor: "blue",
     height: hp(7.5),
     width: wp(56.5),
   },

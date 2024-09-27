@@ -74,7 +74,7 @@ const SignUp = ({ navigation }: any) => {
           Have an account?{" "}
           <Text
             onPress={() => {
-              navigation.navigate("login");
+              navigation.replace("login");
             }}
           >
             Log in

@@ -10,9 +10,14 @@ import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
+import { RootStackParams } from "../../utils/types";
 
 const DrawerContent = (props: any) => {
   const navigation = useNavigation();
+
+  const handleSideNav = (path: keyof RootStackParams) => {
+    navigation.navigate(path);
+  };
   return (
     <View style={{ flex: 1 }}>
       <DrawerContentScrollView
@@ -25,18 +30,37 @@ const DrawerContent = (props: any) => {
           <Fragment key={favoriteIndex}>
             <DrawerHeadline
               userAvatar={require("../../assets/userAvater.png")}
-              //   userAvatar={favorite.userAvatar}
               userName={favorite.userName}
               userPhoneNumber={favorite.userPhoneNumber}
             />
           </Fragment>
         ))}
         <View style={{ marginTop: hp(8.9), marginLeft: wp(5.3) }}>
-          {drawerItems.map((favorite, favoriteIndex) => (
-            <Fragment key={favoriteIndex}>
+          {drawerItems.map((favorite: any, favoriteIndex) => (
+            <Pressable
+              onPress={() => handleSideNav(favorite.path)}
+              key={favoriteIndex}
+            >
               <DrawerCards title={favorite.name} icon={favorite.icon} />
-            </Fragment>
+            </Pressable>
           ))}
+          <Pressable
+            style={{ flexDirection: "row", marginTop: hp(9.4) }}
+            onPress={() => {
+              navigation.navigate("login");
+            }}
+          >
+            <Image source={require("../../assets/logoutpics.png")} />
+            <Text
+              style={{
+                marginLeft: wp(6.1),
+                fontSize: 16,
+                color: "white",
+              }}
+            >
+              LogOut
+            </Text>
+          </Pressable>
         </View>
       </DrawerContentScrollView>
     </View>

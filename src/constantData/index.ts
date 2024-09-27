@@ -6,45 +6,57 @@ import PnpIcon from "../components/atoms/icons/p&pIcon";
 import PaymentIcon from "../components/atoms/icons/paymentIcon";
 import SettingIcon from "../components/atoms/icons/settingIcon";
 import TestBookingIcon from "../components/atoms/icons/testBookingIcon";
+import { RootStackParams } from "../utils/types";
 
-export const drawerItems = [
+export const drawerItems: {
+  icon: any;
+  name: string;
+  path: keyof RootStackParams;
+}[] = [
   {
     icon: require("../assets/mydoctorpics.png"),
     name: "My Doctors",
+    path: "myDoctorPage",
   },
   {
     icon: require("../assets/medicalrecordspics.png"),
     name: "Medical Records ",
+    path: "medicalRecordPage",
   },
   {
     icon: require("../assets/paymentpics.png"),
     name: "Payments",
+    path: "paymentPage",
   },
   {
     icon: require("../assets/medcineorderpics.png"),
     name: "Medicine Orders",
+    path: "medicineOrderPage",
   },
   {
     icon: require("../assets/testbookingpics.png"),
     name: "Test Bookings",
+    path: "testBookingPage",
   },
   {
     icon: require("../assets/pppics.png"),
     name: "Privacy & Policy",
+    path: "privacyAndPolicyPage",
   },
   {
     icon: require("../assets/helpcenterpics.png"),
     name: "Help Center",
+    path: "helpCenterPage",
   },
   {
     icon: require("../assets/settingspics.png"),
     name: "Settings",
+    path: "settingPage",
   },
 ];
 
 export const userInfo = [
   {
-    userAvatar: <userAvatar />,
     userName: "Abdullah Mamun",
     userPhoneNumber: "01303-527300",
   },

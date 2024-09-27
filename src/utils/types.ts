@@ -10,4 +10,12 @@ export type RootStackParams = {
   docdetails: undefined;
   favoriteDocPage: undefined;
   drawerTab: undefined;
+  myDoctorPage: undefined;
+  medicalRecordPage: undefined;
+  paymentPage: undefined;
+  medicineOrderPage: undefined;
+  testBookingPage: undefined;
+  privacyAndPolicyPage: undefined;
+  helpCenterPage: undefined;
+  settingPage: undefined;
 };
