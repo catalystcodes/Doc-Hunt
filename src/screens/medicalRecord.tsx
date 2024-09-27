@@ -1,10 +1,11 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import HeadLine from "../components/molecules/headeLine";
 
 const MedicalRecord = () => {
   return (
     <View>
-      <Text>Medical Record</Text>
+      <HeadLine />
     </View>
   );
 };
