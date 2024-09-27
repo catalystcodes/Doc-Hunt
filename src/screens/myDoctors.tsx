@@ -3,6 +3,11 @@ import { Image, StyleSheet, Text, View } from "react-native";
 import HeadLine from "../components/molecules/headeLine";
 import InputText from "../components/atoms/inputText";
 import SearchArea from "../components/atoms/searchArea";
+import MyDoctorCard from "../components/molecules/myDoctorCard";
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from "react-native-responsive-screen";
 
 const MyDoctors = () => {
   return (
@@ -16,8 +21,9 @@ const MyDoctors = () => {
         style={styles.tinyLogo2}
       />
       <HeadLine title="My Doctors" />
-      <View>
-        <SearchArea placeholder="Search" />
+      <SearchArea placeholder="Search" />
+      <View style={{ marginTop: hp(3), paddingHorizontal: wp(5.3) }}>
+        <MyDoctorCard />
       </View>
     </View>
   );

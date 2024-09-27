@@ -207,3 +207,42 @@ export const docProgress = [
     patient: 700,
   },
 ];
+
+export const myDoctorDetails = [
+  {
+    image: "",
+    name: "",
+    specialty: "",
+    yearOfExperience: "",
+    percentage: "",
+    patientStories: "",
+    nextAvailableTime: "",
+  },
+  {
+    image: "",
+    name: "",
+    specialty: "",
+    yearOfExperience: "",
+    percentage: "",
+    patientStories: "",
+    nextAvailableTime: "",
+  },
+  {
+    image: "",
+    name: "",
+    specialty: "",
+    yearOfExperience: "",
+    percentage: "",
+    patientStories: "",
+    nextAvailableTime: "",
+  },
+  {
+    image: "",
+    name: "",
+    specialty: "",
+    yearOfExperience: "",
+    percentage: "",
+    patientStories: "",
+    nextAvailableTime: "",
+  },
+];
