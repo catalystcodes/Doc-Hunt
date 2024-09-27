@@ -1,5 +1,12 @@
 import React from "react";
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  ImageSourcePropType,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -7,37 +14,56 @@ import {
 import BigFavIcon from "../atoms/icons/bigFavIcon";
 import AppButton from "../atoms/confirmationButton";
 
-const MyDoctorCard = () => {
+interface DocCardProps {
+  name: string;
+  image: ImageSourcePropType;
+  specialty: string;
+  yearOfExperience: string;
+  percentage: string;
+  patientStories: string;
+  nextAvailableTime: string;
+  likeIcon: ImageSourcePropType;
+}
+
+const MyDoctorCard = ({
+  name,
+  image,
+  specialty,
+  yearOfExperience,
+  percentage,
+  patientStories,
+  nextAvailableTime,
+  likeIcon,
+}: DocCardProps) => {
   return (
     <View style={styles.whole}>
       <View style={styles.subWhole1}>
-        <Image source={require("../../assets/Dr Tranguilli.png")} />
+        <Image source={image} />
         <View style={{ flexGrow: 1, marginLeft: wp(3.7) }}>
-          <Text style={{ fontSize: 18, fontWeight: "500" }}>
-            Dr. Tranquilli
-          </Text>
-          <Text style={styles.text3}>Specilist medicine</Text>
-          <Text style={styles.text1}>6 Years experience</Text>
+          <Text style={{ fontSize: 18, fontWeight: "500" }}>{name}</Text>
+          <Text style={styles.text3}>{specialty}</Text>
+          <Text style={styles.text1}>{yearOfExperience}</Text>
           <View style={styles.subWhole3}>
             <View style={styles.subWhole2}>
               <Image source={require("../../assets/dot.png")} />
-              <Text style={styles.text2}>87%</Text>
+              <Text style={styles.text2}>{percentage}%</Text>
             </View>
             <View style={styles.subWhole2}>
               <Image source={require("../../assets/dot.png")} />
-              <Text style={styles.text2}>69 Patient Stories</Text>
+              <Text style={styles.text2}>{patientStories} Patient Stories</Text>
             </View>
           </View>
         </View>
-        <BigFavIcon />
+        <Image source={likeIcon} />
       </View>
       <View style={styles.whole2}>
         <View style={{ rowGap: hp(0.6) }}>
           <Text style={{ fontSize: 13, color: "#0EBE7F", fontWeight: "500" }}>
-            Next Available{" "}
+            Next Available
           </Text>
           <Text style={{ color: "#677294", fontSize: 12, fontWeight: "light" }}>
-            <Text style={{ fontWeight: "500" }}>12:00</Text> AM tomorrow
+            <Text style={{ fontWeight: "500" }}>{nextAvailableTime}</Text> AM
+            tomorrow
           </Text>
         </View>
         <Pressable style={styles.buttonStyle}>
