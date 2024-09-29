@@ -26,10 +26,10 @@ const PrivacynPolicy = () => {
         </Text>
         <View style={{ flexDirection: "row" }}>
           <Image source={require("../assets/dot.png")} />
-          <Text>
+          {/* <Text>
             The standard chunk of lorem Ipsum used since 1500s is reproduced
             below for those interested.
-          </Text>
+          </Text> */}
         </View>
         <View style={{ flexDirection: "row" }}>
           <Image source={require("../assets/dot.png")} />
