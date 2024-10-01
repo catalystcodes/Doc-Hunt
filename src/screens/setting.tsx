@@ -14,6 +14,7 @@ import DropDown from "../components/molecules/dropDown";
 import KeyboardAvoidView from "../components/molecules/KeyboardAvoidView";
 import LanguageDropDown from "../components/molecules/dropDown";
 import CurrencyDropDown from "../components/molecules/currencyDropDown";
+import LinkedAccountDropDown from "../components/molecules/linkedAccountDropDown";
 
 const Setting = () => {
   const navigation = useNavigation();
@@ -60,8 +61,7 @@ const Setting = () => {
         </View>
         <View style={styles.view1}>
           <Text style={styles.text}>Linked accounts </Text>
-          {/* <Text> Dropo Down</Text> */}
-          {/* <DropDown /> */}
+          <LinkedAccountDropDown />
         </View>
       </View>
     </KeyboardAvoidView>
