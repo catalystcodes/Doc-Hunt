@@ -55,6 +55,33 @@ export const drawerItems: {
   },
 ];
 
+export const settingMenuItems: {
+  icon: any;
+  title: string;
+  path: keyof RootStackParams;
+}[] = [
+  {
+    icon: require("../assets/changePasswordIcon.png"),
+    title: "Change Password",
+    path: "",
+  },
+  {
+    icon: require("../assets/notificationIcon.png"),
+    title: "Notifications",
+    path: "",
+  },
+  {
+    icon: require("../assets/statIcon.png"),
+    title: "Statistics",
+    path: "",
+  },
+  {
+    icon: require("../assets/aboutUs .png"),
+    title: "About us",
+    path: "",
+  },
+];
+
 export const userInfo = [
   {
     userName: "Abdullah Mamun",

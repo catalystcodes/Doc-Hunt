@@ -10,6 +10,14 @@ const PrivacynPolicy = () => {
   return (
     <>
       <HeadLine title="Privacy policy" />
+      <Image
+        style={styles.tinyLogo}
+        source={require("../assets/backgroundImage1.png")}
+      />
+      <Image
+        style={styles.tinyLogo2}
+        source={require("../assets/backgroundImage2.png")}
+      />
       <View style={styles.whole}>
         <Text
           style={{
@@ -151,5 +159,13 @@ export default PrivacynPolicy;
 const styles = StyleSheet.create({
   whole: {
     paddingHorizontal: wp(5.3),
+  },
+  tinyLogo: {
+    position: "absolute",
+  },
+  tinyLogo2: {
+    position: "absolute",
+    bottom: 0,
+    right: 0,
   },
 });
