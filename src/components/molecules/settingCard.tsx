@@ -27,7 +27,7 @@ const SettingCard = ({
           flexGrow: 1,
           marginLeft: wp(5.3),
           fontSize: 16,
-          fontWeight: "light",
+          fontWeight: "200",
           color: "#677294",
         }}
       >
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     paddingVertical: hp(1.2),
-    borderBottomColor: "#0EBE7F",
+    borderBottomColor: "rgba(0, 230, 71, 0.3)",
     borderBottomWidth: 0.3,
   },
 });
