@@ -22,7 +22,17 @@ const SettingCard = ({
   return (
     <View style={styles.whole}>
       <Image source={icon} />
-      <Text style={{ flexGrow: 1, marginLeft: wp(5.3) }}>{title}</Text>
+      <Text
+        style={{
+          flexGrow: 1,
+          marginLeft: wp(5.3),
+          fontSize: 16,
+          fontWeight: "light",
+          color: "#677294",
+        }}
+      >
+        {title}
+      </Text>
       <Image source={require("../../assets/arrowRightPics2.png")} />
     </View>
   );
