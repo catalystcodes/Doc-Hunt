@@ -87,16 +87,11 @@ const DrawerContent = (props: any) => {
               Are you sure you what to logout?
             </Text>
             <View style={styles.okNCancel}>
-              <Text style={styles.text} onPress={toggleModal}>
-                Cancel
-              </Text>
               <TouchableOpacity onPress={toggleModal}>
-                <Text
-                  onPress={() => navigation.navigate("login")}
-                  style={styles.text}
-                >
-                  Ok
-                </Text>
+                <Text style={styles.text}>Cancel</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("login")}>
+                <Text style={styles.text}>Ok</Text>
               </TouchableOpacity>
             </View>
           </View>

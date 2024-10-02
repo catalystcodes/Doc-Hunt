@@ -1,15 +1,16 @@
-import React, { useCallback, useMemo, useRef, useState } from "react";
-
-import { useVideoPlayer, VideoView } from "expo-video";
+import React, { useCallback, useMemo, useRef } from "react";
+import {
+  BottomSheetModal,
+  BottomSheetView,
+  BottomSheetModalProvider,
+} from "@gorhom/bottom-sheet";
 
 import {
   Image,
-  ImageBackground,
   // Modal,
   Pressable,
   StyleSheet,
   Text,
-  TextInput,
   TouchableOpacity,
   View,
 } from "react-native";
@@ -20,19 +21,24 @@ import {
 import Button from "../components/atoms/button";
 import Google from "../components/atoms/icons/google";
 import Facebook from "../components/atoms/icons/facebook";
-import ConfirmationButton from "../components/atoms/confirmationButton";
 import KeyboardAvoidView from "../components/molecules/KeyboardAvoidView";
 import InputText from "../components/atoms/inputText";
-import {
-  BottomSheetBackdrop,
-  BottomSheetModal,
-  BottomSheetModalProvider,
-  BottomSheetView,
-} from "@gorhom/bottom-sheet";
-import BottomSheet from "@gorhom/bottom-sheet";
-import Handle from "../components/molecules/bottomSheet";
 
 const Login = ({ navigation }: any) => {
+  // ref
+  const bottomSheetModalRef = useRef<BottomSheetModal>(null);
+
+  // variables
+  const snapPoints = useMemo(() => ["25%", "50%"], []);
+
+  // callbacks
+  const handlePresentModalPress = useCallback(() => {
+    bottomSheetModalRef.current?.present();
+  }, []);
+  const handleSheetChanges = useCallback((index: number) => {
+    console.log("handleSheetChanges", index);
+  }, []);
+
   return (
     <BottomSheetModalProvider>
       <View style={{ flexGrow: 1 }}>
@@ -92,7 +98,7 @@ const Login = ({ navigation }: any) => {
               </Text>
             </Pressable>
 
-            <TouchableOpacity onPress={() => {}}>
+            <TouchableOpacity onPress={handlePresentModalPress}>
               <Text
                 style={{
                   textAlign: "center",
@@ -123,6 +129,21 @@ const Login = ({ navigation }: any) => {
           </View>
         </KeyboardAvoidView>
       </View>
+      <BottomSheetModal
+        ref={bottomSheetModalRef}
+        index={1}
+        snapPoints={snapPoints}
+        onChange={handleSheetChanges}
+        handleIndicatorStyle={{ backgroundColor: "#C4C4C4", width: wp(34.7) }}
+        // backgroundStyle={{ backgroundColor: "#1d0f4e" }}
+        enablePanDownToClose={true}
+      >
+        <BottomSheetView>
+          <View>
+            <Text>Forgot password</Text>
+          </View>
+        </BottomSheetView>
+      </BottomSheetModal>
     </BottomSheetModalProvider>
   );
 };
