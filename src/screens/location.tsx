@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Image, Modal, StyleSheet, Text, View } from "react-native";
+import React from "react";
+import { Image, StyleSheet, Text, View } from "react-native";
 import HeadLine from "../components/molecules/headeLine";
 import {
   heightPercentageToDP as hp,
@@ -8,11 +8,12 @@ import {
 import AppButton from "../components/atoms/confirmationButton";
 import { useNavigation } from "@react-navigation/native";
 
-const MedicineOrder = () => {
+const Location = () => {
   const navigation: any = useNavigation();
+
   return (
     <View>
-      <HeadLine title="Medicine Orders" />
+      <HeadLine title="Enable Location Services" />
       <View
         style={{
           backgroundColor: "#C6EFE5",
@@ -22,10 +23,10 @@ const MedicineOrder = () => {
           alignItems: "center",
           justifyContent: "center",
           marginHorizontal: wp(21.9),
-          marginTop: hp(10.9),
+          marginTop: hp(11.6),
         }}
       >
-        <Image source={require("../assets/medicineOrderPics.png")} />
+        <Image source={require("../assets/locationPics.png")} />
       </View>
       <Text
         style={{
@@ -36,7 +37,7 @@ const MedicineOrder = () => {
           marginBottom: hp(1.6),
         }}
       >
-        No orders placed yet
+        Location
       </Text>
       <Text
         style={{
@@ -45,14 +46,16 @@ const MedicineOrder = () => {
           fontWeight: "regular",
           marginBottom: hp(4.4),
           color: "#677294",
+          paddingHorizontal: wp(12),
         }}
       >
-        Place your first order now.
+        Your location services are switched off. Please enable location, to help
+        us serve better.
       </Text>
       <View style={{ width: wp(72), margin: "auto" }}>
         <AppButton
-          text="Order medicines"
-          onPress={() => navigation.navigate("location")}
+          text="Enable Location"
+          onPress={() => navigation.navigate("medicineOrderMainPage")}
         />
       </View>
     </View>
@@ -61,4 +64,4 @@ const MedicineOrder = () => {
 
 const styles = StyleSheet.create({});
 
-export default MedicineOrder;
+export default Location;

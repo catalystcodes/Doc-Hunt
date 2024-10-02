@@ -310,3 +310,30 @@ export const helpCenterMenu = [
     text: "Other issues",
   },
 ];
+
+export const medicineOrderCardDetails = [
+  {
+    image: require("../assets/mediOrder1.png"),
+    details: "Guide to medicine order",
+  },
+  {
+    image: require("../assets/medicOrder2.png"),
+    details: "Prescription related issues",
+  },
+  {
+    image: require("../assets/medicOrder3.png"),
+    details: "Order Status",
+  },
+  {
+    image: require("../assets/medicOrder4.png"),
+    details: "Order delivery",
+  },
+  {
+    image: require("../assets/medicOrder5.png"),
+    details: "Payments & Refunds",
+  },
+  {
+    image: require("../assets/medicOrder6.png"),
+    details: "Order returns",
+  },
+];

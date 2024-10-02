@@ -18,4 +18,6 @@ export type RootStackParams = {
   privacyAndPolicyPage: undefined;
   helpCenterPage: undefined;
   settingPage: undefined;
+  location: undefined;
+  medicineOrderMainPage: undefined;
 };

@@ -7,6 +7,8 @@ import Home from "../../screens/home";
 import Appointment from "../../screens/appointment";
 import AppointmentSchedule from "../../screens/appointmentSchedule";
 import DocDetails from "../../screens/docDetails";
+import Location from "../../screens/location";
+import MedicineOrderPage from "../../screens/medicineOrderPage";
 
 // screen;
 
@@ -25,6 +27,8 @@ const HomeStack = () => {
           component={AppointmentSchedule}
         />
         <Screen name="docdetails" component={DocDetails} />
+        <Screen name="location" component={Location} />
+        <Screen name="medicineOrderMainPage" component={MedicineOrderPage} />
       </Navigator>
     </View>
   );

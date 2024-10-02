@@ -46,7 +46,7 @@ const HeadLine: React.FC<Props> = ({ title, style }) => {
       >
         {title}
       </Text>
-      <SearchIcon />
+      {/* <SearchIcon /> */}
     </View>
   );
 };
