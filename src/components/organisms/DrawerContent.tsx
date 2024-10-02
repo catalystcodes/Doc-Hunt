@@ -21,7 +21,7 @@ import {
 import { RootStackParams } from "../../utils/types";
 
 const DrawerContent = (props: any) => {
-  const navigation = useNavigation();
+  const navigation: any = useNavigation();
 
   const handleSideNav = (path: keyof RootStackParams) => {
     navigation.navigate(path);

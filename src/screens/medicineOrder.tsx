@@ -11,7 +11,15 @@ import { useNavigation } from "@react-navigation/native";
 const MedicineOrder = () => {
   const navigation: any = useNavigation();
   return (
-    <View>
+    <View style={{ flexGrow: 1 }}>
+      <Image
+        style={styles.tinyLogo}
+        source={require("../assets/backgroundImage1.png")}
+      />
+      <Image
+        style={styles.tinyLogo2}
+        source={require("../assets/backgroundImage2.png")}
+      />
       <HeadLine title="Medicine Orders" />
       <View
         style={{
@@ -59,6 +67,15 @@ const MedicineOrder = () => {
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  tinyLogo: {
+    position: "absolute",
+  },
+  tinyLogo2: {
+    position: "absolute",
+    bottom: 0,
+    right: 0,
+  },
+});
 
 export default MedicineOrder;

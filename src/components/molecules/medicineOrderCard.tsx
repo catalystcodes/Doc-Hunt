@@ -7,6 +7,7 @@ import {
   View,
 } from "react-native";
 import {
+  heightPercentageToDP,
   heightPercentageToDP as hp,
   widthPercentageToDP,
   widthPercentageToDP as wp,
@@ -22,7 +23,17 @@ const MedicineOrderCard = ({
   return (
     <View style={styles.whole}>
       <Image source={source} />
-      <Text>{text}</Text>
+      <Text
+        style={{
+          textAlign: "center",
+          fontSize: 14,
+          fontWeight: "500",
+          color: "#677294",
+          marginTop: heightPercentageToDP(1.6),
+        }}
+      >
+        {text}
+      </Text>
     </View>
   );
 };
@@ -32,11 +43,11 @@ export default MedicineOrderCard;
 const styles = StyleSheet.create({
   whole: {
     height: hp(19.7),
-    width: wp(42.7),
+    width: wp(42.6),
     backgroundColor: "white",
     borderRadius: 10,
     justifyContent: "center",
     alignItems: "center",
-    paddingHorizontal: widthPercentageToDP(5.3),
+    paddingHorizontal: widthPercentageToDP(3.7),
   },
 });

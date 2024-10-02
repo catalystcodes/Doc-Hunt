@@ -10,6 +10,7 @@ import {
   StyleSheet,
   Text,
   TextInput,
+  TouchableOpacity,
   View,
 } from "react-native";
 import {
@@ -32,25 +33,6 @@ import BottomSheet from "@gorhom/bottom-sheet";
 import Handle from "../components/molecules/bottomSheet";
 
 const Login = ({ navigation }: any) => {
-  const bottomSheetModalRef = useRef<BottomSheetModal>(null);
-  const snapPoints = useMemo(() => ["1%", "45%"], []);
-  const handleOpenPress = () => bottomSheetModalRef.current?.expand();
-
-  const handleSheetChanges = useCallback((index: number) => {
-    console.log("handleSheetChanges", index);
-  }, []);
-
-  const renderBackdrop = useCallback(
-    (props: any) => (
-      <BottomSheetBackdrop
-        appearsOnIndex={1}
-        disappearsOnIndex={0}
-        {...props}
-      />
-    ),
-    []
-  );
-
   return (
     <BottomSheetModalProvider>
       <View style={{ flexGrow: 1 }}>
@@ -110,96 +92,35 @@ const Login = ({ navigation }: any) => {
               </Text>
             </Pressable>
 
-            <Text
+            <TouchableOpacity onPress={() => {}}>
+              <Text
+                style={{
+                  textAlign: "center",
+                  color: "#0EBE7F",
+                  marginTop: hp(2.3),
+                }}
+              >
+                Forgot password
+              </Text>
+            </TouchableOpacity>
+            <View
               style={{
-                textAlign: "center",
-                color: "#0EBE7F",
-                marginTop: hp(2.3),
-                // marginBottom: hp(15.1),
-              }}
-              onPress={() => {
-                handleOpenPress();
+                flexDirection: "row",
+                justifyContent: "center",
+                alignItems: "center",
+                marginTop: hp(13),
               }}
             >
-              Forgot password
-            </Text>
-            <Text style={styles.doYouHaveAcc}>
-              Don’t have an account?
-              <Text
+              <Text style={styles.doYouHaveAcc}>Don’t have an account?</Text>
+              <TouchableOpacity
                 onPress={() => {
                   navigation.navigate("signUp");
                 }}
               >
-                Join us
-              </Text>
-            </Text>
+                <Text style={styles.doYouHaveAcc}>Join us</Text>
+              </TouchableOpacity>
+            </View>
           </View>
-
-          <BottomSheet
-            ref={bottomSheetModalRef}
-            index={0}
-            snapPoints={snapPoints}
-            onChange={handleSheetChanges}
-            handleIndicatorStyle={{
-              backgroundColor: "#C4C4C4",
-              height: hp("0.6"),
-              width: wp("34.7"),
-            }}
-            backdropComponent={renderBackdrop}
-          >
-            <BottomSheetView style={styles.contentContainer}>
-              <View style={styles.modelView}>
-                <Text
-                  style={{
-                    fontSize: 24,
-                    marginTop: hp(6.8),
-                    marginBottom: hp(2.5),
-                    fontWeight: "medium",
-                  }}
-                >
-                  Forgot password
-                </Text>
-                <Text
-                  style={{
-                    color: "#677294",
-                  }}
-                >
-                  Enter your email for the verification process, we will send 4
-                  digits code to your email.
-                </Text>
-              </View>
-              <TextInput
-                style={styles.input}
-                // onChangeText={onChangeNumber}
-                // value={number}
-                placeholder="Email"
-                keyboardType="email-address"
-              />
-              <Pressable
-                style={{
-                  width: wp(78.7),
-                  height: hp(6.7),
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  borderRadius: 12,
-                  marginTop: hp(3.7),
-                  backgroundColor: "#0EBE7F",
-                }}
-              >
-                <Text
-                  style={{
-                    textAlign: "center",
-                    color: "white",
-                    fontSize: 18,
-                    fontWeight: "medium",
-                  }}
-                >
-                  Continue
-                </Text>
-              </Pressable>
-            </BottomSheetView>
-          </BottomSheet>
         </KeyboardAvoidView>
       </View>
     </BottomSheetModalProvider>
@@ -251,11 +172,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   doYouHaveAcc: {
-    textAlign: "center",
-    marginTop: hp(2.1),
     color: "#0EBE7F",
     fontSize: 14,
-    paddingBottom: hp(5.7),
+    // paddingBottom: hp(5.7),
   },
 
   tinyLogo: {
@@ -269,6 +188,7 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     flex: 1,
+    // height: 100,
     alignItems: "center",
   },
   modelView: {

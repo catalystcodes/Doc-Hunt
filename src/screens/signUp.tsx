@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Text,
   TextInput,
+  TouchableOpacity,
   View,
 } from "react-native";
 import {
@@ -70,16 +71,23 @@ const SignUp = ({ navigation }: any) => {
         <View style={{ width: wp(73.7), marginHorizontal: "auto" }}>
           <AppButton text="Sign up" />
         </View>
-        <Text style={styles.doYouHaveAcc}>
-          Have an account?{" "}
-          <Text
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: hp(2.1),
+          }}
+        >
+          <Text style={styles.doYouHaveAcc}>Have an account? </Text>
+          <TouchableOpacity
             onPress={() => {
               navigation.replace("login");
             }}
           >
-            Log in
-          </Text>
-        </Text>
+            <Text style={styles.doYouHaveAcc}>Log in</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </KeyboardAvoidView>
   );
@@ -137,8 +145,6 @@ const styles = StyleSheet.create({
   },
 
   doYouHaveAcc: {
-    textAlign: "center",
-    marginTop: hp(2.1),
     color: "#0EBE7F",
     fontSize: 14,
   },

@@ -12,7 +12,15 @@ const Location = () => {
   const navigation: any = useNavigation();
 
   return (
-    <View>
+    <View style={{ flexGrow: 1 }}>
+      <Image
+        style={styles.tinyLogo}
+        source={require("../assets/backgroundImage1.png")}
+      />
+      <Image
+        style={styles.tinyLogo2}
+        source={require("../assets/backgroundImage2.png")}
+      />
       <HeadLine title="Enable Location Services" />
       <View
         style={{
@@ -62,6 +70,15 @@ const Location = () => {
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  tinyLogo: {
+    position: "absolute",
+  },
+  tinyLogo2: {
+    position: "absolute",
+    bottom: 0,
+    right: 0,
+  },
+});
 
 export default Location;
