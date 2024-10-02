@@ -17,6 +17,7 @@ const LinkedAccountDropDown = () => {
       save="value"
       placeholder="Facebook, Google"
       boxStyles={{ borderWidth: 0 }}
+      searchPlaceholder=""
     />
   );
 };

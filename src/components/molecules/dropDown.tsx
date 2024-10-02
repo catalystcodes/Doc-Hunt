@@ -18,6 +18,7 @@ const LanguageDropDown = () => {
       save="value"
       placeholder="Select language"
       boxStyles={{ borderWidth: 0 }}
+      searchPlaceholder=""
     />
   );
 };

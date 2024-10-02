@@ -277,3 +277,36 @@ export const myDoctorDetails = [
     likeIcon: require("../assets/like.png"),
   },
 ];
+
+export const helpCenterMenu = [
+  {
+    text: "Booking a new Appointment",
+  },
+  {
+    text: "Existing Appointment",
+  },
+  {
+    text: "Online consultations",
+  },
+  {
+    text: "Feedbacks",
+  },
+  {
+    text: "Medicine orders",
+  },
+  {
+    text: "Diagnostic Tests",
+  },
+  {
+    text: "Health plans",
+  },
+  {
+    text: "My account and Practo Drive",
+  },
+  {
+    text: "Have a feature in mind",
+  },
+  {
+    text: "Other issues",
+  },
+];
