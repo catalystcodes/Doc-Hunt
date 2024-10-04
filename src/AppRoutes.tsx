@@ -10,6 +10,7 @@ import AppBottomTabs from "./components/molecules/bottomTab";
 import PopularDoc from "./screens/popularDoc";
 import AppointmentSchedule from "./screens/appointmentSchedule";
 import DrawerScreens from "./screens/drawerScreen";
+import AddRecord from "./screens/addRecord";
 
 const Stack = createStackNavigator<RootStackParams>();
 
@@ -26,6 +27,7 @@ const AppRoutes = () => {
         <Screen name="login" component={Login} />
         <Screen name="drawerTab" component={DrawerScreens} />
         <Screen name="popularDocFullPage" component={PopularDoc} />
+        <Screen name="addRecordPage" component={AddRecord} />
       </Navigator>
     </View>
   );

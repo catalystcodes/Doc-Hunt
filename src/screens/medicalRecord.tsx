@@ -111,6 +111,12 @@ const MedicalRecord = () => {
                 <UploadFile />
                 <Text style={styles.sheetText}>Upload files</Text>
               </Pressable>
+              <Text
+                style={{ textAlign: "center" }}
+                onPress={() => navigation.navigate("addRecordPage")}
+              >
+                Move
+              </Text>
             </View>
           </BottomSheetView>
         </BottomSheetModal>

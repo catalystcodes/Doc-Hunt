@@ -9,6 +9,7 @@ import AppointmentSchedule from "../../screens/appointmentSchedule";
 import DocDetails from "../../screens/docDetails";
 import Location from "../../screens/location";
 import MedicineOrderPage from "../../screens/medicineOrderPage";
+import AddRecord from "../../screens/addRecord";
 
 // screen;
 

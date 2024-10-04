@@ -20,4 +20,5 @@ export type RootStackParams = {
   settingPage: undefined;
   location: undefined;
   medicineOrderMainPage: undefined;
+  addRecordPage: undefined;
 };
