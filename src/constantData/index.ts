@@ -337,3 +337,5 @@ export const medicineOrderCardDetails = [
     details: "Order returns",
   },
 ];
+
+export const allRecordCardDetails = [{ date: "", name: "", Prescription: "" }];

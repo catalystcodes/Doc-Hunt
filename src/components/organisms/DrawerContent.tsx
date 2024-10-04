@@ -38,6 +38,10 @@ const DrawerContent = (props: any) => {
 
   return (
     <View style={{ flex: 1 }}>
+      <Image
+        source={require("../../assets/drawerImage.png")}
+        style={styles.drawerImage}
+      />
       <DrawerContentScrollView
         {...props}
         style={{
@@ -145,5 +149,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "500",
     color: "#0EBE7F",
+  },
+  drawerImage: {
+    position: "absolute",
+    left: 293,
+    top: 165,
   },
 });

@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useRef } from "react";
+import React, { useCallback, useMemo, useRef, useState } from "react";
 import {
   BottomSheetModal,
   BottomSheetView,
@@ -23,15 +23,19 @@ import Google from "../components/atoms/icons/google";
 import Facebook from "../components/atoms/icons/facebook";
 import KeyboardAvoidView from "../components/molecules/KeyboardAvoidView";
 import InputText from "../components/atoms/inputText";
+import AppButton from "../components/atoms/confirmationButton";
+import InputOtpEntry from "../components/molecules/inputOtpEntry";
 
 const Login = ({ navigation }: any) => {
   // ref
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
   // variables
-  const snapPoints = useMemo(() => ["25%", "50%"], []);
+  const snapPoints = useMemo(() => ["50%", "60%"], []);
+  const [bottomSheet, setBottomSheet] = useState(false);
 
   // callbacks
+
   const handlePresentModalPress = useCallback(() => {
     bottomSheetModalRef.current?.present();
   }, []);
@@ -131,18 +135,63 @@ const Login = ({ navigation }: any) => {
       </View>
       <BottomSheetModal
         ref={bottomSheetModalRef}
-        index={1}
+        index={0}
         snapPoints={snapPoints}
         onChange={handleSheetChanges}
         handleIndicatorStyle={{ backgroundColor: "#C4C4C4", width: wp(34.7) }}
-        // backgroundStyle={{ backgroundColor: "#1d0f4e" }}
         enablePanDownToClose={true}
       >
-        <BottomSheetView>
-          <View>
-            <Text>Forgot password</Text>
-          </View>
-        </BottomSheetView>
+        <KeyboardAvoidView>
+          <BottomSheetView>
+            {!bottomSheet && (
+              <View style={styles.bottomSheetStyle}>
+                <Text style={styles.forget}>Forgot password</Text>
+                <Text style={styles.text}>
+                  Enter your email for the verification process, we will send 4
+                  digits code to your email.
+                </Text>
+                <InputText placeholder="Email" />
+                <View
+                  style={{
+                    width: wp(78.7),
+                    marginHorizontal: "auto",
+                    marginTop: hp(3.7),
+                  }}
+                >
+                  <AppButton
+                    text="continue"
+                    onPress={() => {
+                      setBottomSheet(true);
+                    }}
+                  />
+                </View>
+              </View>
+            )}
+            {bottomSheet && (
+              <View style={styles.bottomSheetStyle}>
+                <Text style={styles.forget}>Enter 4 Digits Code</Text>
+                <Text style={styles.text}>
+                  Enter the 4 digits code that you received on your email.
+                </Text>
+                <InputOtpEntry />
+                <View
+                  style={{
+                    width: wp(78.7),
+                    marginHorizontal: "auto",
+                    marginTop: hp(3.7),
+                  }}
+                >
+                  <AppButton
+                    text="continue"
+                    onPress={() => {
+                      setBottomSheet(true);
+                    }}
+                  />
+                </View>
+              </View>
+            )}
+          </BottomSheetView>
+        </KeyboardAvoidView>
       </BottomSheetModal>
     </BottomSheetModalProvider>
   );
@@ -195,7 +244,6 @@ const styles = StyleSheet.create({
   doYouHaveAcc: {
     color: "#0EBE7F",
     fontSize: 14,
-    // paddingBottom: hp(5.7),
   },
 
   tinyLogo: {
@@ -207,19 +255,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     right: 0,
   },
-  contentContainer: {
-    flex: 1,
-    // height: 100,
-    alignItems: "center",
-  },
-  modelView: {
-    paddingLeft: wp(5.1),
-    // paddingRight: wp(18),
-    // backgroundColor: "red",
-  },
-  modalInput: {
-    flexGrow: 1,
-  },
+
   input: {
     width: wp(89.3),
     height: hp(6.7),
@@ -229,5 +265,24 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     paddingLeft: wp(6.7),
     borderColor: "#677294",
+  },
+  bottomSheetStyle: {
+    paddingHorizontal: wp(5.3),
+  },
+  bottomSheetStyle1: {
+    backgroundColor: "red",
+  },
+  forget: {
+    fontSize: 24,
+    fontWeight: "500",
+    marginTop: hp(6.8),
+    marginBottom: hp(1.5),
+  },
+  text: {
+    color: "#677294",
+    fontSize: 14,
+    fontWeight: "regular",
+    marginBottom: hp(4.4),
+    width: wp(76.5),
   },
 });
