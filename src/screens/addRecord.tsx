@@ -1,16 +1,17 @@
 import React from "react";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
-import HeadLine from "../components/molecules/headeLine";
-import PatientImage from "../components/molecules/PatientImage";
-import PlusIcon from "../components/atoms/plusIcon";
 import {
-  widthPercentageToDP as wp,
   heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
+import AppButton from "../components/atoms/confirmationButton";
 import EditIcon from "../components/atoms/editIcon";
-import ReportIcon from "../components/atoms/reportIcon";
-import PrescriptionIcon from "../components/atoms/prescribtion";
 import InvoiceIcon from "../components/atoms/invoice";
+import PlusIcon from "../components/atoms/plusIcon";
+import PrescriptionIcon from "../components/atoms/prescribtion";
+import ReportIcon from "../components/atoms/reportIcon";
+import PatientImage from "../components/molecules/PatientImage";
+import HeadLine from "../components/molecules/headeLine";
 
 const AddRecord = () => {
   return (
@@ -28,7 +29,7 @@ const AddRecord = () => {
         style={{
           flexDirection: "row",
           paddingLeft: wp(5.3),
-          marginBottom: hp(16.5),
+          marginBottom: hp(11),
         }}
       >
         <PatientImage
@@ -61,11 +62,16 @@ const AddRecord = () => {
       </View>
       <View
         style={{
-          backgroundColor: "red",
+          backgroundColor: "white",
           borderTopLeftRadius: 20,
           borderTopRightRadius: 20,
           flexGrow: 1,
           paddingHorizontal: wp(3.5),
+          // shadowColor: "red",
+          shadowColor: "#171717",
+          shadowOffset: { width: -2, height: 10 },
+          shadowOpacity: 1,
+          shadowRadius: 8,
         }}
       >
         <View
@@ -94,7 +100,7 @@ const AddRecord = () => {
             paddingBottom: hp(3.3),
           }}
         >
-          <Text>Type of Record </Text>
+          <Text style={{ marginVertical: hp(2.2) }}>Type of Record </Text>
           <View style={styles.typeOfRecord}>
             <View style={{ alignItems: "center" }}>
               <ReportIcon />
@@ -109,6 +115,31 @@ const AddRecord = () => {
               <Text>Invoice</Text>
             </View>
           </View>
+        </View>
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            marginTop: hp(3.7),
+            borderBottomColor: "#E5E5E5",
+            borderBottomWidth: 1,
+            paddingBottom: hp(3.3),
+          }}
+        >
+          <View style={{ flexGrow: 1 }}>
+            <Text style={styles.header}>Record created on</Text>
+            <Text style={styles.subHeader}>27 Feb, 2021</Text>
+          </View>
+          <EditIcon />
+        </View>
+        <View
+          style={{
+            width: wp(78),
+            marginHorizontal: "auto",
+            marginTop: hp(3.7),
+          }}
+        >
+          <AppButton text="Upload record" />
         </View>
       </View>
     </View>
