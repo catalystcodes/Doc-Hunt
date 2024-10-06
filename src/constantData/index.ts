@@ -58,7 +58,7 @@ export const drawerItems: {
 export const settingMenuItems: {
   icon: any;
   title: string;
-  path: keyof RootStackParams;
+  path: keyof RootStackParams | "";
 }[] = [
   {
     icon: require("../assets/changePasswordIcon.png"),
@@ -338,4 +338,8 @@ export const medicineOrderCardDetails = [
   },
 ];
 
-export const allRecordCardDetails = [{ date: "", name: "", Prescription: "" }];
+export const allRecordCardDetails = [
+  { date: "27 FEB", name: "Abdullah mamun", Prescription: 1 },
+  { date: "27 FEB ", name: "Abdullah shuvo", Prescription: 1 },
+  { date: "01 MAR", name: "Shruti Kedia", Prescription: 1 },
+];

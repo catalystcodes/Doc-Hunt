@@ -11,6 +11,7 @@ import PopularDoc from "./screens/popularDoc";
 import AppointmentSchedule from "./screens/appointmentSchedule";
 import DrawerScreens from "./screens/drawerScreen";
 import AddRecord from "./screens/addRecord";
+import AllRecord from "./screens/allRecord";
 
 const Stack = createStackNavigator<RootStackParams>();
 
@@ -28,6 +29,7 @@ const AppRoutes = () => {
         <Screen name="drawerTab" component={DrawerScreens} />
         <Screen name="popularDocFullPage" component={PopularDoc} />
         <Screen name="addRecordPage" component={AddRecord} />
+        <Screen name="allRecord" component={AllRecord} />
       </Navigator>
     </View>
   );

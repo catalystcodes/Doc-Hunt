@@ -82,7 +82,7 @@ const SignUp = ({ navigation }: any) => {
           <Text style={styles.doYouHaveAcc}>Have an account? </Text>
           <TouchableOpacity
             onPress={() => {
-              navigation.replace("login");
+              navigation.navigate("login");
             }}
           >
             <Text style={styles.doYouHaveAcc}>Log in</Text>

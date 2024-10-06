@@ -12,8 +12,10 @@ import PrescriptionIcon from "../components/atoms/prescribtion";
 import ReportIcon from "../components/atoms/reportIcon";
 import PatientImage from "../components/molecules/PatientImage";
 import HeadLine from "../components/molecules/headeLine";
+import { useNavigation } from "@react-navigation/native";
 
 const AddRecord = () => {
+  const navigation: any = useNavigation();
   return (
     <View style={{ flexGrow: 1 }}>
       <Image
@@ -139,7 +141,10 @@ const AddRecord = () => {
             marginTop: hp(3.7),
           }}
         >
-          <AppButton text="Upload record" />
+          <AppButton
+            text="Upload record"
+            onPress={() => navigation.navigate("allRecord")}
+          />
         </View>
       </View>
     </View>

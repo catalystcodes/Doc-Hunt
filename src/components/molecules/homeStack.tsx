@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import SignUp from "../../screens/signUp";
-import { RootStackParams } from "../../utils/types";
+import { HomeStackParams, RootStackParams } from "../../utils/types";
 import Home from "../../screens/home";
 import Appointment from "../../screens/appointment";
 import AppointmentSchedule from "../../screens/appointmentSchedule";
@@ -12,8 +12,7 @@ import MedicineOrderPage from "../../screens/medicineOrderPage";
 import AddRecord from "../../screens/addRecord";
 
 // screen;
-
-const Stack = createStackNavigator<RootStackParams>();
+const Stack = createStackNavigator<HomeStackParams>();
 
 const HomeStack = () => {
   const { Navigator, Screen } = Stack;

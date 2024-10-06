@@ -2,12 +2,9 @@ export type RootStackParams = {
   onboarding: undefined;
   signUp: undefined;
   login: undefined;
-  homepage: undefined;
+
   bottomTab: undefined;
   popularDocFullPage: undefined;
-  appointmentPage: undefined;
-  appointmentSchedulePage: undefined;
-  docdetails: undefined;
   favoriteDocPage: undefined;
   drawerTab: undefined;
   myDoctorPage: undefined;
@@ -18,7 +15,15 @@ export type RootStackParams = {
   privacyAndPolicyPage: undefined;
   helpCenterPage: undefined;
   settingPage: undefined;
+  addRecordPage: undefined;
+  allRecord: undefined;
+};
+
+export type HomeStackParams = {
+  homepage: undefined;
+  appointmentPage: undefined;
+  appointmentSchedulePage: undefined;
   location: undefined;
   medicineOrderMainPage: undefined;
-  addRecordPage: undefined;
+  docdetails: undefined;
 };

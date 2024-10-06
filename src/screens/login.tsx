@@ -204,7 +204,7 @@ const styles = StyleSheet.create({
     marginTop: hp("15.4"),
     marginBottom: hp("1.8"),
     fontSize: 24,
-    fontWeight: "medium",
+    fontWeight: "500",
     textAlign: "center",
   },
   subHeader: {
