@@ -22,8 +22,11 @@ import BodyIcon from "../components/atoms/icons/bodyIcon";
 import PopularDocCard from "../components/molecules/popularDocCard";
 import { detailsOfDoc, featureDocDetails } from "../constantData";
 import FeatureDoc from "../components/molecules/featureDoc";
+import { useAuthContext } from "../context";
 
 const Home = ({ navigation }: any) => {
+  const { userInfo, clearAuthData } = useAuthContext();
+
   return (
     <View style={{ flexGrow: 1 }}>
       <KeyboardAvoidView>
@@ -43,8 +46,11 @@ const Home = ({ navigation }: any) => {
         </View>
         <View style={styles.header}>
           <View>
-            <Text style={{ color: "white", fontSize: 20, fontWeight: "light" }}>
+            {/* <Text style={{ color: "white", fontSize: 20, fontWeight: "light" }}>
               Hi Handwerker!
+            </Text> */}
+            <Text style={{ color: "white", fontSize: 20, fontWeight: "light" }}>
+              {userInfo}
             </Text>
             <Text style={{ color: "white", fontSize: 25, fontWeight: "bold" }}>
               Find Your Doctor

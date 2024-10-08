@@ -25,8 +25,13 @@ import KeyboardAvoidView from "../components/molecules/KeyboardAvoidView";
 import InputText from "../components/atoms/inputText";
 import AppButton from "../components/atoms/confirmationButton";
 import InputOtpEntry from "../components/molecules/inputOtpEntry";
+import { useAuthContext } from "../context";
+import { doLogin } from "../utils/auth.helper";
 
 const Login = ({ navigation }: any) => {
+  const [form, setForm] = useState({ email: "", password: "" });
+  const { setUserInfo } = useAuthContext();
+
   // ref
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
@@ -71,7 +76,7 @@ const Login = ({ navigation }: any) => {
               </View>
               <View style={styles.inputSection}>
                 <InputText placeholder="Name" />
-                <InputText placeholder="Password" />
+                <InputText placeholder="Password" type="password" />
               </View>
             </View>
             <Pressable

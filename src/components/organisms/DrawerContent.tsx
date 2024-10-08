@@ -19,6 +19,7 @@ import {
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
 import { RootStackParams } from "../../utils/types";
+// import { useAuthContext } from "../context";
 
 const DrawerContent = (props: any) => {
   const navigation: any = useNavigation();
@@ -48,15 +49,20 @@ const DrawerContent = (props: any) => {
           display: "flex",
         }}
       >
-        {userInfo.map((favorite, favoriteIndex) => (
-          <Fragment key={favoriteIndex}>
-            <DrawerHeadline
-              userAvatar={require("../../assets/userAvater.png")}
-              userName={favorite.userName}
-              userPhoneNumber={favorite.userPhoneNumber}
-            />
-          </Fragment>
-        ))}
+        {userInfo.map(
+          (
+            favorite: { userName: string; userPhoneNumber: string | number },
+            favoriteIndex: React.Key | null | undefined
+          ) => (
+            <Fragment key={favoriteIndex}>
+              <DrawerHeadline
+                userAvatar={require("../../assets/userAvater.png")}
+                userName={favorite.userName}
+                userPhoneNumber={favorite.userPhoneNumber}
+              />
+            </Fragment>
+          )
+        )}
         <View style={{ marginTop: hp(8.9), marginLeft: wp(5.3) }}>
           {drawerItems.map((favorite: any, favoriteIndex) => (
             <Pressable
@@ -156,3 +162,6 @@ const styles = StyleSheet.create({
     top: 165,
   },
 });
+function useAuthContext(): { userInfo: any; clearAuthData: any } {
+  throw new Error("Function not implemented.");
+}
