@@ -12,6 +12,7 @@ import AppointmentSchedule from "./screens/appointmentSchedule";
 import DrawerScreens from "./screens/drawerScreen";
 import AddRecord from "./screens/addRecord";
 import AllRecord from "./screens/allRecord";
+import AppOnboarding from "./components/organisms/AppOnboarding";
 
 const Stack = createStackNavigator<RootStackParams>();
 
@@ -22,8 +23,9 @@ const AppRoutes = () => {
     <View style={styles.container}>
       <Navigator
         screenOptions={{ headerShown: false }}
-        initialRouteName="signUp"
+        initialRouteName="appOnboarding"
       >
+        <Screen name="appOnboarding" component={AppOnboarding} />
         <Screen name="signUp" component={SignUp} />
         <Screen name="login" component={Login} />
         <Screen name="drawerTab" component={DrawerScreens} />

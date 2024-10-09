@@ -17,6 +17,7 @@ export type RootStackParams = {
   settingPage: undefined;
   addRecordPage: undefined;
   allRecord: undefined;
+  appOnboarding: undefined;
 };
 
 export type HomeStackParams = {
@@ -26,4 +27,17 @@ export type HomeStackParams = {
   location: undefined;
   medicineOrderMainPage: undefined;
   docdetails: undefined;
+};
+
+export type MainStackParams = {
+  favoriteDocPage: undefined;
+  appointmentPage: undefined;
+  appointmentSchedulePage: undefined;
+  docdetails: undefined;
+};
+
+export type OnboardingStackParams = {
+  replace(arg0: string): unknown;
+  navigate(arg0: string): unknown;
+  login: undefined;
 };

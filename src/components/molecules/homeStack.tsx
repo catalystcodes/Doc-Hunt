@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import SignUp from "../../screens/signUp";
-import { HomeStackParams, RootStackParams } from "../../utils/types";
+import { HomeStackParams } from "../../utils/types";
 import Home from "../../screens/home";
 import Appointment from "../../screens/appointment";
 import AppointmentSchedule from "../../screens/appointmentSchedule";
