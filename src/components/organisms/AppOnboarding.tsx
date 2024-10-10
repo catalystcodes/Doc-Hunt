@@ -13,9 +13,10 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import { slides } from "../../constantData/onBoardinngData";
-import Steps from "../molecules/steps";
+// import Steps from "../molecules/steps";
 import { useNavigation } from "@react-navigation/native";
 import { OnboardingStackParams } from "../../utils/types";
+import AppButton from "../atoms/confirmationButton";
 
 const renderItem = (
   {
@@ -41,15 +42,17 @@ const renderItem = (
         <View style={styles.imageWrapper}>
           <Image style={styles.image1} source={item.image} />
         </View>
-        <View style={styles.stepContainer}>
+        {/* <View style={styles.stepContainer}>
           <Steps activeStep={activeSlide} steps={slides.length} />
-        </View>
+        </View> */}
         <Text
           style={{
             textAlign: "center",
             fontWeight: "700",
             fontSize: 20,
             width: wp(55.5),
+            marginTop: hp(10.5),
+            marginBottom: hp(1.5),
           }}
         >
           {item.title}
@@ -58,9 +61,7 @@ const renderItem = (
         <Text
           style={{
             textAlign: "center",
-
             width: wp(82),
-            marginTop: 15,
             lineHeight: 23.87,
           }}
         >
@@ -74,7 +75,6 @@ const renderItem = (
 const AppOnboarding = () => {
   const [activeSlide, setActiveSlide] = useState(0);
   const sliderRef = useRef(null);
-  //   const navigation = useNavigation<OnboardingStackParams>();
   const navigation = useNavigation<OnboardingStackParams>();
   const handleSkip = () => {
     navigation.replace("login");
@@ -93,27 +93,16 @@ const AppOnboarding = () => {
   };
 
   return (
-    <View style={{ flexGrow: 1, marginTop: 15 }}>
-      <View>
-        <Pressable
-          onPress={() => {
-            handleSkip();
-          }}
-        >
-          <Text
-            style={{
-              textAlign: "right",
-              fontSize: 14,
-              fontWeight: "500",
-              marginTop: 35,
-              marginBottom: 45,
-              marginRight: 26,
-            }}
-          >
-            SKIP
-          </Text>
-        </Pressable>
-      </View>
+    <View style={{ flexGrow: 1 }}>
+      <Image
+        source={require("../../assets/tinyLogo3.png")}
+        style={styles.tinyLogo}
+      />
+      <Image
+        source={require("../../assets/bg4.png")}
+        style={styles.tinyLogo2}
+      />
+      <View style={{ marginTop: hp(11.2) }}></View>
       <AppIntroSlider
         ref={sliderRef}
         data={slides}
@@ -123,11 +112,17 @@ const AppOnboarding = () => {
         }}
         renderPagination={() => null}
       />
-      <View style={{ alignItems: "center", marginBottom: hp(6) }}>
-        <Pressable style={styles.getStartedButton} onPress={handleGetStarted}>
-          <Text style={styles.getStartedText}>Get Started</Text>
-        </Pressable>
+
+      <View style={{ width: wp(77), marginHorizontal: "auto" }}>
+        <AppButton text="Get Started" onPress={handleGetStarted} />
       </View>
+      <Pressable
+        onPress={() => {
+          handleSkip();
+        }}
+      >
+        <Text style={{ textAlign: "center" }}>SKIP</Text>
+      </Pressable>
     </View>
   );
 };
@@ -143,10 +138,6 @@ const styles = StyleSheet.create({
     height: "100%",
     objectFit: "cover",
   },
-  stepContainer: {
-    marginTop: hp(10.5),
-    marginBottom: hp(4.3),
-  },
 
   getStartedButton: {
     width: wp(56.5),
@@ -161,5 +152,18 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 18,
     fontWeight: "500",
+  },
+  tinyLogo: {
+    position: "absolute",
+    height: hp(42.1),
+    width: wp(91.2),
+    right: 150,
+  },
+  tinyLogo2: {
+    position: "absolute",
+    bottom: 0,
+    right: 0,
+    height: hp(26.8),
+    width: wp(57.6),
   },
 });
