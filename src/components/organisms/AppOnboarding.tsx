@@ -102,6 +102,7 @@ const AppOnboarding = () => {
         source={require("../../assets/bg4.png")}
         style={styles.tinyLogo2}
       />
+
       <View style={{ marginTop: hp(11.2) }}></View>
       <AppIntroSlider
         ref={sliderRef}
@@ -112,17 +113,34 @@ const AppOnboarding = () => {
         }}
         renderPagination={() => null}
       />
-
-      <View style={{ width: wp(77), marginHorizontal: "auto" }}>
-        <AppButton text="Get Started" onPress={handleGetStarted} />
-      </View>
-      <Pressable
-        onPress={() => {
-          handleSkip();
+      <View
+        style={{
+          marginBottom: hp(6.4),
         }}
       >
-        <Text style={{ textAlign: "center" }}>SKIP</Text>
-      </Pressable>
+        <View
+          style={{
+            width: wp(77),
+            marginHorizontal: "auto",
+          }}
+        >
+          <AppButton text="Get Started" onPress={handleGetStarted} />
+        </View>
+        <Pressable
+          onPress={() => {
+            handleSkip();
+          }}
+        >
+          <Text
+            style={{
+              textAlign: "center",
+              marginTop: hp(1.7),
+            }}
+          >
+            SKIP
+          </Text>
+        </Pressable>
+      </View>
     </View>
   );
 };
