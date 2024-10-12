@@ -23,6 +23,7 @@ import PopularDocCard from "../components/molecules/popularDocCard";
 import { detailsOfDoc, featureDocDetails } from "../constantData";
 import FeatureDoc from "../components/molecules/featureDoc";
 import { useAuthContext } from "../context";
+import LiveIcon from "../components/atoms/live";
 
 const Home = ({ navigation }: any) => {
   const { userInfo, clearAuthData } = useAuthContext();
@@ -71,10 +72,48 @@ const Home = ({ navigation }: any) => {
           </Text>
           <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
             <View style={styles.videos}>
-              {/* <VideoScreen videoSource="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" /> */}
-              <VideoScreen videoSource="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" />
-              <VideoScreen videoSource="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" />
-              <VideoScreen videoSource="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" />
+              <View>
+                <Pressable
+                  style={{
+                    width: wp(10.7),
+                    position: "absolute",
+                    left: 85,
+                    top: 45,
+                    zIndex: 10,
+                  }}
+                >
+                  <LiveIcon />
+                </Pressable>
+                <VideoScreen videoSource="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" />
+              </View>
+              <View>
+                <Pressable
+                  style={{
+                    width: wp(10.7),
+                    position: "absolute",
+                    left: 85,
+                    top: 45,
+                    zIndex: 10,
+                  }}
+                >
+                  <LiveIcon />
+                </Pressable>
+                <VideoScreen videoSource="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" />
+              </View>
+              <View>
+                <Pressable
+                  style={{
+                    width: wp(10.7),
+                    position: "absolute",
+                    left: 85,
+                    top: 45,
+                    zIndex: 10,
+                  }}
+                >
+                  <LiveIcon />
+                </Pressable>
+                <VideoScreen videoSource="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" />
+              </View>
             </View>
           </ScrollView>
           <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>

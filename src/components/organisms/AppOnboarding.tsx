@@ -91,17 +91,26 @@ const AppOnboarding = () => {
       navigation.navigate("login");
     }
   };
-
+  //   console.log(slides[1]);
+  console.log({ activeSlide });
   return (
     <View style={{ flexGrow: 1 }}>
-      <Image
-        source={require("../../assets/tinyLogo3.png")}
-        style={styles.tinyLogo}
-      />
+      {activeSlide !== 1 && (
+        <Image
+          source={require("../../assets/tinyLogo3.png")}
+          style={[styles.tinyLogo, { opacity: activeSlide !== 1 ? 1 : 0 }]}
+        />
+      )}
       <Image
         source={require("../../assets/bg4.png")}
         style={styles.tinyLogo2}
       />
+      {activeSlide === 1 && (
+        <Image
+          source={require("../../assets/tingLogo4.png")}
+          style={[styles.tinyLogo3, { opacity: activeSlide === 1 ? 1 : 0 }]}
+        />
+      )}
 
       <View style={{ marginTop: hp(11.2) }}></View>
       <AppIntroSlider
@@ -183,5 +192,12 @@ const styles = StyleSheet.create({
     right: 0,
     height: hp(26.8),
     width: wp(57.6),
+  },
+  tinyLogo3: {
+    position: "absolute",
+    height: hp(42.1),
+    width: wp(91.2),
+    right: 0,
+    left: 220,
   },
 });
