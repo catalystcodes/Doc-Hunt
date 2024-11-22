@@ -4,21 +4,26 @@ import React, { ReactNode } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import KeyboardAvoidView from "../molecules/KeyboardAvoidView";
-import { store } from "../../../store";
 import { Provider } from "react-redux";
 import AuthProvider from "../../context";
+import { persistor, store } from "../../store";
+import { PersistGate } from "redux-persist/integration/react";
 
 const AppManager = ({ children }: { children: ReactNode }) => {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <SafeAreaProvider>
-        <NavigationContainer>
-          <AuthProvider>
-            <StatusBar backgroundColor="black" />
-            <Provider store={store}>{children}</Provider>
-          </AuthProvider>
-        </NavigationContainer>
-      </SafeAreaProvider>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <SafeAreaProvider>
+            <NavigationContainer>
+              <AuthProvider>
+                <StatusBar backgroundColor="black" />
+                {children}
+              </AuthProvider>
+            </NavigationContainer>
+          </SafeAreaProvider>
+        </PersistGate>
+      </Provider>
     </GestureHandlerRootView>
   );
 };

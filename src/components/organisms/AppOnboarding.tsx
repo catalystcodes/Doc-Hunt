@@ -17,6 +17,8 @@ import { slides } from "../../constantData/onBoardinngData";
 import { useNavigation } from "@react-navigation/native";
 import { OnboardingStackParams } from "../../utils/types";
 import AppButton from "../atoms/confirmationButton";
+import { useDispatch } from "react-redux";
+import { setOnboarding } from "../../store/appReducer";
 
 const renderItem = (
   {
@@ -76,23 +78,26 @@ const AppOnboarding = () => {
   const [activeSlide, setActiveSlide] = useState(0);
   const sliderRef = useRef(null);
   const navigation = useNavigation<OnboardingStackParams>();
+  const dispatch = useDispatch();
+
   const handleSkip = () => {
-    navigation.replace("login");
+    navigation.navigate("login");
+    dispatch(setOnboarding(true));
   };
 
   const handleGetStarted = () => {
     if (activeSlide === 0) {
       setActiveSlide((currentSlide) => {
         const newIndex = currentSlide + 1;
-        sliderRef.current.goToSlide(newIndex);
+        // sliderRef.current.goToSlide(newIndex);
         return newIndex;
       });
     } else {
       navigation.navigate("login");
+      dispatch(setOnboarding(true));
     }
   };
-  //   console.log(slides[1]);
-  console.log({ activeSlide });
+
   return (
     <View style={{ flexGrow: 1 }}>
       {activeSlide !== 1 && (
