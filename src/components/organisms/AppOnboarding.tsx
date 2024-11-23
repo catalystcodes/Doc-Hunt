@@ -13,7 +13,6 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import { slides } from "../../constantData/onBoardinngData";
-// import Steps from "../molecules/steps";
 import { useNavigation } from "@react-navigation/native";
 import { OnboardingStackParams } from "../../utils/types";
 import AppButton from "../atoms/confirmationButton";
