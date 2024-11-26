@@ -69,7 +69,12 @@ const SignUp = ({ navigation }: any) => {
           </View>
         </View>
         <View style={{ width: wp(73.7), marginHorizontal: "auto" }}>
-          <AppButton text="Sign up" />
+          <AppButton
+            text="Sign up"
+            onPress={() => {
+              navigation.navigate("homepage");
+            }}
+          />
         </View>
         <View
           style={{

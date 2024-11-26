@@ -13,11 +13,13 @@ import DrawerScreens from "./screens/drawerScreen";
 import AddRecord from "./screens/addRecord";
 import AllRecord from "./screens/allRecord";
 import AppOnboarding from "./components/organisms/AppOnboarding";
+import { useSelector } from "react-redux";
 
 const Stack = createStackNavigator<RootStackParams>();
 
 const AppRoutes = () => {
   const { Navigator, Screen } = Stack;
+  const appReducer: any = useSelector<any>((state) => state.appReducer);
 
   return (
     <View style={styles.container}>
@@ -25,7 +27,9 @@ const AppRoutes = () => {
         screenOptions={{ headerShown: false }}
         initialRouteName="appOnboarding"
       >
-        <Screen name="appOnboarding" component={AppOnboarding} />
+        {!appReducer.onBoarding && (
+          <Screen name="appOnboarding" component={AppOnboarding} />
+        )}
         <Screen name="signUp" component={SignUp} />
         <Screen name="login" component={Login} />
         <Screen name="drawerTab" component={DrawerScreens} />

@@ -27,10 +27,13 @@ import AppButton from "../components/atoms/confirmationButton";
 import InputOtpEntry from "../components/molecules/inputOtpEntry";
 import { useAuthContext } from "../context";
 import { doLogin } from "../utils/auth.helper";
+import { useSelector } from "react-redux";
 
 const Login = ({ navigation }: any) => {
   const [form, setForm] = useState({ email: "", password: "" });
   const { setUserInfo } = useAuthContext();
+  const state = useSelector((state) => state);
+  console.log("state", { state });
 
   // ref
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
@@ -92,7 +95,7 @@ const Login = ({ navigation }: any) => {
                 backgroundColor: "#0EBE7F",
               }}
               onPress={() => {
-                navigation.replace("drawerTab");
+                navigation.navigate("drawerTab");
               }}
             >
               <Text
