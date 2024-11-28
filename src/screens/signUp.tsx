@@ -138,14 +138,7 @@ const SignUp = ({ navigation }: any) => {
                 </Text>
               </View>
             </View>
-            {/* <View style={{ width: wp(73.7), marginHorizontal: "auto" }}>
-              <AppButton
-                text="Sign up"
-                onPress={() => {
-                  navigation.navigate("homepage");
-                }}
-              />
-            </View> */}
+
             <TouchableOpacity
               onPress={() => {
                 navigation.navigate("drawerTab");
@@ -153,7 +146,7 @@ const SignUp = ({ navigation }: any) => {
               disabled={!isValid}
               style={[
                 styles.submitBtn,
-                { backgroundColor: isValid ? "#D3D3D3" : "#0EBE7F" },
+                { backgroundColor: isValid ? "#90e6c8" : "#0EBE7F" },
               ]}
             >
               <Text>Sign up</Text>
