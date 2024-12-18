@@ -6,8 +6,8 @@ import {
 } from "@gorhom/bottom-sheet";
 
 import {
+  Alert,
   Image,
-  // Modal,
   Pressable,
   StyleSheet,
   Text,
@@ -26,14 +26,33 @@ import InputText from "../components/atoms/inputText";
 import AppButton from "../components/atoms/confirmationButton";
 import InputOtpEntry from "../components/molecules/inputOtpEntry";
 import { useAuthContext } from "../context";
-import { doLogin } from "../utils/auth.helper";
 import { useSelector } from "react-redux";
+import { addNewUser, doLogin } from "../utils/auth.helper";
+
+const defaultForm = {
+  username: "",
+  password: "",
+};
 
 const Login = ({ navigation }: any) => {
-  const [form, setForm] = useState({ email: "", password: "" });
+  const [form, setForm] = useState(defaultForm);
   const { setUserInfo } = useAuthContext();
   const state = useSelector((state) => state);
-  console.log("state", { state });
+
+  // logic for disable button
+  const disableButton =
+    form.username.trim() === "" || form.password.trim() === "";
+
+  // handle login
+  const handleLogin = async () => {
+    if (disableButton) return;
+    try {
+      const data = await doLogin(form);
+      if (data) {
+        setUserInfo(form.username);
+      }
+    } catch (error) {}
+  };
 
   // ref
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
@@ -78,25 +97,33 @@ const Login = ({ navigation }: any) => {
                 <Button text="Facebook" Icon={<Facebook />} />
               </View>
               <View style={styles.inputSection}>
-                <InputText placeholder="Name" />
-                <InputText placeholder="Password" type="password" />
+                <InputText
+                  placeholder="Name"
+                  value={form.username}
+                  onChangeText={(text) =>
+                    setForm((currentValue) => ({
+                      ...currentValue,
+                      username: text,
+                    }))
+                  }
+                />
+                <InputText
+                  placeholder="Password"
+                  type="password"
+                  value={form.password}
+                  onChangeText={(text) =>
+                    setForm((currentValue) => ({
+                      ...currentValue,
+                      password: text,
+                    }))
+                  }
+                />
               </View>
             </View>
             <Pressable
-              style={{
-                width: wp(78.7),
-                height: hp(6.7),
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                borderRadius: 12,
-                marginTop: 50,
-                marginLeft: wp(10.7),
-                backgroundColor: "#0EBE7F",
-              }}
-              onPress={() => {
-                navigation.navigate("drawerTab");
-              }}
+              onPress={handleLogin}
+              disabled={disableButton}
+              style={[styles.authButton]}
             >
               <Text
                 style={{
@@ -292,5 +319,16 @@ const styles = StyleSheet.create({
     fontWeight: "regular",
     marginBottom: hp(4.4),
     width: wp(76.5),
+  },
+  authButton: {
+    width: wp(78.7),
+    height: hp(6.7),
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 12,
+    marginTop: 50,
+    marginLeft: wp(10.7),
+    backgroundColor: "#0EBE7F",
   },
 });
