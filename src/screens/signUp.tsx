@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import {
+  Alert,
   Image,
-  ImageBackground,
-  Pressable,
   StyleSheet,
   Text,
-  TextInput,
   TouchableOpacity,
   View,
 } from "react-native";
@@ -13,18 +11,15 @@ import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
-import Button from "../components/atoms/button";
 import Google from "../components/atoms/icons/google";
 import Facebook from "../components/atoms/icons/facebook";
-import ConfirmationButton from "../components/atoms/confirmationButton";
 import KeyboardAvoidView from "../components/molecules/KeyboardAvoidView";
 import InputText from "../components/atoms/inputText";
 import Checkbox from "expo-checkbox";
 import OAuthButton from "../components/atoms/button";
-import AppButton from "../components/atoms/confirmationButton";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { set } from "lodash";
+import { addNewUser } from "../utils/auth.helper";
 
 const SignUpSchema = Yup.object().shape({
   name: Yup.string()
@@ -42,10 +37,31 @@ const SignUpSchema = Yup.object().shape({
     .email("Please enter your valid email")
     .required("Required"),
 });
+const defaultForm = {
+  username: "",
+  email: "",
+  password: "",
+};
 
 const SignUp = ({ navigation }: any) => {
   const [isChecked, setChecked] = useState(false);
+  const [form, setForm] = useState(defaultForm);
 
+  const disableButton =
+    form.username?.trim() === "" ||
+    form.password?.trim() === "" ||
+    form.email?.trim() === "";
+
+  const handleSignUp = async () => {
+    if (disableButton) return;
+    const { email, ...otherFormFields } = form;
+    try {
+      const data = await addNewUser(otherFormFields);
+      if (data) {
+        navigation.navigate("login");
+      }
+    } catch (e) {}
+  };
   return (
     <KeyboardAvoidView>
       <Formik
@@ -87,8 +103,8 @@ const SignUp = ({ navigation }: any) => {
               <View style={styles.inputSection}>
                 <InputText
                   placeholder="Name"
-                  value={values.name}
-                  onChangeText={handleChange("name")}
+                  value={form.username}
+                  onChangeText={(text) => setForm({ ...form, username: text })}
                   onBlur={() => setFieldTouched("name")}
                 />
                 {touched.name && errors.name && (
@@ -99,8 +115,8 @@ const SignUp = ({ navigation }: any) => {
                 <InputText
                   placeholder="Email"
                   keyboardType="email-address"
-                  value={values.email}
-                  onChangeText={handleChange("email")}
+                  value={form.email}
+                  onChangeText={(text) => setForm({ ...form, email: text })}
                   onBlur={() => setFieldTouched("email")}
                 />
                 {touched.email && errors.email && (
@@ -111,10 +127,11 @@ const SignUp = ({ navigation }: any) => {
                 <InputText
                   placeholder="Password"
                   type="password"
-                  value={values.password}
-                  onChangeText={handleChange("password")}
+                  value={form.password}
+                  onChangeText={(text) => setForm({ ...form, password: text })}
                   onBlur={() => setFieldTouched("password")}
                 />
+
                 {touched.password && errors.password && (
                   <Text
                     style={{
@@ -140,10 +157,8 @@ const SignUp = ({ navigation }: any) => {
             </View>
 
             <TouchableOpacity
-              onPress={() => {
-                navigation.navigate("drawerTab");
-              }}
-              disabled={!isValid}
+              onPress={handleSignUp}
+              disabled={disableButton}
               style={[
                 styles.submitBtn,
                 { backgroundColor: isValid ? "#90e6c8" : "#0EBE7F" },
