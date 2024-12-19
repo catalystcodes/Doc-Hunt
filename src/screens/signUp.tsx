@@ -49,8 +49,8 @@ const SignUp = ({ navigation }: any) => {
 
   const disableButton =
     form.username?.trim() === "" ||
-    form.password?.trim() === "" ||
-    form.email?.trim() === "";
+    form.email?.trim() === "" ||
+    form.password?.trim() === "";
 
   const handleSignUp = async () => {
     if (disableButton) return;
@@ -68,15 +68,7 @@ const SignUp = ({ navigation }: any) => {
         initialValues={{ name: "", email: "", password: "" }}
         validationSchema={SignUpSchema}
       >
-        {({
-          values,
-          handleChange,
-          handleSubmit,
-          errors,
-          touched,
-          isValid,
-          setFieldTouched,
-        }) => (
+        {({ errors, touched, isValid, setFieldTouched }) => (
           <View style={styles.whole}>
             <View style={styles.absoluteWrapper}>
               <Image
