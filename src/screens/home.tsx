@@ -50,7 +50,14 @@ const Home = ({ navigation }: any) => {
             {/* <Text style={{ color: "white", fontSize: 20, fontWeight: "light" }}>
               Hi Handwerker!
             </Text> */}
-            <Text style={{ color: "white", fontSize: 20, fontWeight: "light" }}>
+            <Text
+              style={{
+                color: "white",
+                fontSize: 20,
+                fontWeight: "light",
+                backgroundColor: "red",
+              }}
+            >
               {userInfo}
             </Text>
             <Text style={{ color: "white", fontSize: 25, fontWeight: "bold" }}>
