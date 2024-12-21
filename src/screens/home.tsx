@@ -47,18 +47,14 @@ const Home = ({ navigation }: any) => {
         </View>
         <View style={styles.header}>
           <View>
-            {/* <Text style={{ color: "white", fontSize: 20, fontWeight: "light" }}>
-              Hi Handwerker!
-            </Text> */}
             <Text
               style={{
                 color: "white",
                 fontSize: 20,
                 fontWeight: "light",
-                backgroundColor: "red",
               }}
             >
-              {userInfo}
+              {userInfo.username}
             </Text>
             <Text style={{ color: "white", fontSize: 25, fontWeight: "bold" }}>
               Find Your Doctor
