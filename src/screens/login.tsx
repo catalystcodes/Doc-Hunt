@@ -27,23 +27,15 @@ import AppButton from "../components/atoms/confirmationButton";
 import InputOtpEntry from "../components/molecules/inputOtpEntry";
 import { useAuthContext } from "../context";
 import { useSelector } from "react-redux";
-import { addNewUser, doLogin } from "../utils/auth.helper";
-
-const defaultForm = {
-  username: "",
-  password: "",
-};
+import { doLogin } from "../utils/auth.helper";
 
 const Login = ({ navigation }: any) => {
-  const [form, setForm] = useState(defaultForm);
+  const [form, setForm] = useState({ username: "", password: "" });
   const { setUserInfo } = useAuthContext();
-  const state = useSelector((state) => state);
 
-  // logic for disable button
   const disableButton =
     form.username.trim() === "" || form.password.trim() === "";
 
-  // handle login
   const handleLogin = async () => {
     if (disableButton) return;
     try {
@@ -54,14 +46,9 @@ const Login = ({ navigation }: any) => {
     } catch (error) {}
   };
 
-  // ref
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
-
-  // variables
   const snapPoints = useMemo(() => ["50%", "60%"], []);
   const [bottomSheet, setBottomSheet] = useState(false);
-
-  // callbacks
 
   const handlePresentModalPress = useCallback(() => {
     bottomSheetModalRef.current?.present();
@@ -100,30 +87,32 @@ const Login = ({ navigation }: any) => {
                 <InputText
                   placeholder="Name"
                   value={form.username}
-                  onChangeText={(text) =>
+                  onChangeText={(text) => {
                     setForm((currentValue) => ({
                       ...currentValue,
                       username: text,
-                    }))
-                  }
+                    }));
+                    console.log("Username:", text);
+                  }}
                 />
                 <InputText
                   placeholder="Password"
                   type="password"
                   value={form.password}
-                  onChangeText={(text) =>
+                  onChangeText={(text) => {
                     setForm((currentValue) => ({
                       ...currentValue,
                       password: text,
-                    }))
-                  }
+                    }));
+                    console.log("Password:", text);
+                  }}
                 />
               </View>
             </View>
             <Pressable
-              onPress={handleLogin}
-              disabled={disableButton}
+              // disabled={disableButton}
               style={[styles.authButton]}
+              onPress={handleLogin}
             >
               <Text
                 style={{
