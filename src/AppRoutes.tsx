@@ -14,28 +14,35 @@ import AddRecord from "./screens/addRecord";
 import AllRecord from "./screens/allRecord";
 import AppOnboarding from "./components/organisms/AppOnboarding";
 import { useSelector } from "react-redux";
+import { useAuthContext } from "./context";
 
 const Stack = createStackNavigator<RootStackParams>();
 
 const AppRoutes = () => {
+  const { isLoggedIn, isLoadingAuthData } = useAuthContext();
+
   const { Navigator, Screen } = Stack;
   const appReducer: any = useSelector<any>((state) => state.appReducer);
 
   return (
     <View style={styles.container}>
-      <Navigator
-        screenOptions={{ headerShown: false }}
-        initialRouteName="appOnboarding"
-      >
-        {!appReducer.onBoarding && (
-          <Screen name="appOnboarding" component={AppOnboarding} />
+      <Navigator screenOptions={{ headerShown: false }}>
+        {isLoggedIn ? (
+          <>
+            <Screen name="drawerTab" component={DrawerScreens} />
+            <Screen name="popularDocFullPage" component={PopularDoc} />
+            <Screen name="addRecordPage" component={AddRecord} />
+            <Screen name="allRecord" component={AllRecord} />
+          </>
+        ) : (
+          <>
+            {!appReducer.onBoarding && (
+              <Screen name="appOnboarding" component={AppOnboarding} />
+            )}
+            <Screen name="signUp" component={SignUp} />
+            <Screen name="login" component={Login} />
+          </>
         )}
-        <Screen name="signUp" component={SignUp} />
-        <Screen name="login" component={Login} />
-        <Screen name="drawerTab" component={DrawerScreens} />
-        <Screen name="popularDocFullPage" component={PopularDoc} />
-        <Screen name="addRecordPage" component={AddRecord} />
-        <Screen name="allRecord" component={AllRecord} />
       </Navigator>
     </View>
   );
