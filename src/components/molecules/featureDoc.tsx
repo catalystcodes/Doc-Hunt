@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import {
   heightPercentageToDP as hp,
@@ -16,8 +16,9 @@ const FeatureDoc = ({
   name: string;
   payPerHour: string;
   docAvatar: any;
-  rating: string | Number;
+  rating: any;
 }) => {
+  const [isFavorite, setIsFavorite] = useState(false);
   return (
     <View style={styles.whole}>
       <View
@@ -26,7 +27,10 @@ const FeatureDoc = ({
           justifyContent: "space-between",
         }}
       >
-        <FavIcon />
+        <FavIcon
+          isSelected={isFavorite}
+          onPress={() => setIsFavorite(!isFavorite)}
+        />
         <View
           style={{
             flexDirection: "row",

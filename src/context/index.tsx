@@ -46,7 +46,7 @@ const AuthProvider = ({ children }: any) => {
 
 export default AuthProvider;
 
-export const useAuthContext = () => {
+export const useAuthContext = (): any => {
   const authContext = useContext(AuthContext);
   if (!authContext) {
     throw Error("AuthContext hooks can not be used outside AuthProvider");

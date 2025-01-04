@@ -13,6 +13,7 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import { DrawerActions, useNavigation } from "@react-navigation/native";
+import { useAuthContext } from "../../context";
 
 const DrawerHeadline = ({
   userAvatar,
@@ -24,6 +25,8 @@ const DrawerHeadline = ({
   userPhoneNumber: number | string;
 }) => {
   const navigation = useNavigation();
+  const { userInfo } = useAuthContext();
+
   return (
     <View
       style={{
@@ -36,7 +39,7 @@ const DrawerHeadline = ({
       <View style={styles.separator1}></View>
       <View>
         <Text style={{ color: "white", fontSize: 16, fontWeight: "500" }}>
-          {userName}
+          {userInfo?.username}
         </Text>
         <View style={{ flexDirection: "row", marginTop: hp(0.7) }}>
           <CallIcon />

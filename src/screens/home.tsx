@@ -26,7 +26,8 @@ import { useAuthContext } from "../context";
 import LiveIcon from "../components/atoms/live";
 
 const Home = ({ navigation }: any) => {
-  const { userInfo, clearAuthData } = useAuthContext();
+  const { userInfo } = useAuthContext();
+  console.log({ userInfo });
 
   return (
     <View style={{ flexGrow: 1 }}>
@@ -54,7 +55,7 @@ const Home = ({ navigation }: any) => {
                 fontWeight: "light",
               }}
             >
-              {userInfo.username}
+              {userInfo?.username}
             </Text>
             <Text style={{ color: "white", fontSize: 25, fontWeight: "bold" }}>
               Find Your Doctor

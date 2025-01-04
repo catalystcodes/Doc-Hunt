@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import {
   heightPercentageToDP as hp,
@@ -18,12 +18,13 @@ const FavoriteDocCard = ({
   areaofspecialist: string;
 }) => {
   const navigation: any = useNavigation();
+  const [isLiked, setIsLiked] = useState(false);
 
   return (
     <View style={styles.whole}>
       <View style={styles.header}>
         <Text></Text>
-        <FavBigIcon />
+        <FavBigIcon isSelected={isLiked} onPress={() => setIsLiked(!isLiked)} />
       </View>
       <Image source={docAvatar} style={{ marginLeft: wp(10.1) }} />
       <Pressable

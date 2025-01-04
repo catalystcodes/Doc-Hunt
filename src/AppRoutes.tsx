@@ -23,6 +23,7 @@ const AppRoutes = () => {
 
   const { Navigator, Screen } = Stack;
   const appReducer: any = useSelector<any>((state) => state.appReducer);
+  console.log({ isLoggedIn });
 
   return (
     <View style={styles.container}>

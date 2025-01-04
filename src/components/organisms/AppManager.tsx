@@ -14,14 +14,14 @@ const AppManager = ({ children }: { children: ReactNode }) => {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          <SafeAreaProvider>
-            <NavigationContainer>
-              <AuthProvider>
+          <AuthProvider>
+            <SafeAreaProvider>
+              <NavigationContainer>
                 <StatusBar backgroundColor="black" />
                 {children}
-              </AuthProvider>
-            </NavigationContainer>
-          </SafeAreaProvider>
+              </NavigationContainer>
+            </SafeAreaProvider>
+          </AuthProvider>
         </PersistGate>
       </Provider>
     </GestureHandlerRootView>

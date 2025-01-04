@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Modal,
   TouchableOpacity,
+  Alert,
 } from "react-native";
 import React, { Fragment, useEffect, useState } from "react";
 import { DrawerContentScrollView } from "@react-navigation/drawer";
@@ -19,10 +20,11 @@ import {
   widthPercentageToDP as wp,
 } from "react-native-responsive-screen";
 import { RootStackParams } from "../../utils/types";
-// import { useAuthContext } from "../context";
+import { useAuthContext } from "../../context";
 
 const DrawerContent = (props: any) => {
   const navigation: any = useNavigation();
+  const { userInfo: user, clearAuthData } = useAuthContext();
 
   const handleSideNav = (path: keyof RootStackParams) => {
     navigation.navigate(path);
@@ -36,6 +38,26 @@ const DrawerContent = (props: any) => {
   useEffect(() => {
     setIsModalVisible(false);
   }, [navigation]);
+
+  // const logoutConfirmationAlert = () => {
+  //   Alert.alert(
+  //     "Logout",
+  //     "Are you sure you want to logout?",
+  //     [
+  //       {
+  //         text: "Cancel",
+  //         style: "destructive",
+  //       },
+  //       {
+  //         text: "Logout",
+  //         onPress: () => {
+  //           clearAuthData();
+  //         },
+  //       },
+  //     ],
+  //     { cancelable: true }
+  //   );
+  // };
 
   return (
     <View style={{ flex: 1 }}>
@@ -74,7 +96,9 @@ const DrawerContent = (props: any) => {
           ))}
           <Pressable
             style={{ flexDirection: "row", marginTop: hp(9.4) }}
-            onPress={() => setIsModalVisible(true)}
+            onPress={() => {
+              setIsModalVisible(true);
+            }}
           >
             <Image source={require("../../assets/logoutpics.png")} />
             <Text
@@ -100,7 +124,7 @@ const DrawerContent = (props: any) => {
               <TouchableOpacity onPress={toggleModal}>
                 <Text style={styles.text}>Cancel</Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate("login")}>
+              <TouchableOpacity onPress={() => clearAuthData()}>
                 <Text style={styles.text}>Ok</Text>
               </TouchableOpacity>
             </View>
@@ -162,6 +186,3 @@ const styles = StyleSheet.create({
     top: 165,
   },
 });
-function useAuthContext(): { userInfo: any; clearAuthData: any } {
-  throw new Error("Function not implemented.");
-}
