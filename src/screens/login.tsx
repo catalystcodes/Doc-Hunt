@@ -86,6 +86,8 @@ const Login = ({ navigation }: any) => {
               <View style={styles.inputSection}>
                 <InputText
                   placeholder="Name"
+                  placeholderTextColor="#a4a4a4"
+                  // style={{ backgroundColor: "red" }}
                   value={form.username}
                   onChangeText={(text) => {
                     setForm((currentValue) => ({
@@ -97,6 +99,7 @@ const Login = ({ navigation }: any) => {
                 />
                 <InputText
                   placeholder="Password"
+                  placeholderTextColor="#a4a4a4"
                   type="password"
                   value={form.password}
                   onChangeText={(text) => {

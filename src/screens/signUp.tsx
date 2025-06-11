@@ -65,6 +65,7 @@ const SignUp = ({ navigation }: any) => {
   return (
     <KeyboardAvoidView>
       <Formik
+        onSubmit={() => {}}
         initialValues={{ name: "", email: "", password: "" }}
         validationSchema={SignUpSchema}
       >
@@ -95,6 +96,7 @@ const SignUp = ({ navigation }: any) => {
               <View style={styles.inputSection}>
                 <InputText
                   placeholder="Name"
+                  placeholderTextColor="#a4a4a4"
                   value={form.username}
                   onChangeText={(text) => setForm({ ...form, username: text })}
                   onBlur={() => setFieldTouched("name")}
@@ -106,6 +108,7 @@ const SignUp = ({ navigation }: any) => {
                 )}
                 <InputText
                   placeholder="Email"
+                  placeholderTextColor="#a4a4a4"
                   keyboardType="email-address"
                   value={form.email}
                   onChangeText={(text) => setForm({ ...form, email: text })}
@@ -119,6 +122,7 @@ const SignUp = ({ navigation }: any) => {
                 <InputText
                   placeholder="Password"
                   type="password"
+                  placeholderTextColor="#a4a4a4"
                   value={form.password}
                   onChangeText={(text) => setForm({ ...form, password: text })}
                   onBlur={() => setFieldTouched("password")}
